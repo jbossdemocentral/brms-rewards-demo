@@ -42,12 +42,12 @@ if [ -x $JBOSS_HOME ]; then
 	# Unzip the JBoss BRMS instance.
 	echo Unpacking JBoss Enterprise BRMS 5.3.0...
 	echo
-	unzip -q -d target $SRC_DIR/$SOA_P
+	unzip -q -d target $SRC_DIR/$BRMS
 else
 	# Unzip the JBoss BRMS instance.
 	echo Unpacking new JBoss Enterprise BRMS 5.3.0...
 	echo
-	unzip -q -d target $SRC_DIR/$SOA_P
+	unzip -q -d target $SRC_DIR/$BRMS
 fi
 
 
