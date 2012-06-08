@@ -60,6 +60,10 @@ echo "  - enabling admin account in brms-users.properties file..."
 echo
 cp support/brms-users.properties $SERVER_DIR/conf/props
 
+echo "  - enabling demo users for human tasks in jbpm-human-task.war web.xml file..."
+echo
+cp support/jbpm-human-task-war-web.xml $SERVER_DIR/deploy/jbpm-human-task.war/WEB-INF/web.xml
+
 echo JBoss Enterprise BRMS 5.3 Rewards Demo Setup Complete.
 echo
 
