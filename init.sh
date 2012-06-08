@@ -56,9 +56,13 @@ echo "  - making sure run.sh for server is executable..."
 echo
 chmod u+x $JBOSS_HOME/jboss-as/bin/run.sh
 
-echo "  - enabling admin account in brms-users.properties file..."
+echo "  - enabling demo accounts logins in brms-users.properties file..."
 echo
 cp support/brms-users.properties $SERVER_DIR/conf/props
+
+echo "  - enabling demo accounts role setup in brms-roles.properties file..."
+echo
+cp support/brms-roles.properties $SERVER_DIR/conf/props
 
 echo "  - enabling demo users for human tasks in jbpm-human-task.war web.xml file..."
 echo
