@@ -70,7 +70,12 @@ cp support/jbpm-human-task-war-web.xml $SERVER_DIR/deploy/jbpm-human-task.war/WE
 
 echo "  - enabling demo accounts user setup for hypersonicDB entries in hypersonicDB.script file...."
 echo
-cp support/hypersonic-localDB.script $SERVER_DIR/data/hypersonic/localDB.script
+if [ -d $SERVER_DIR/data ]; then
+	cp support/hypersonic-localDB.script $SERVER_DIR/data/hypersonic/localDB.script
+else
+	mkdir -p $SERVER_DIR/data/hypersonic
+	cp support/hypersonic-localDB.script $SERVER_DIR/data/hypersonic/localDB.script
+fi
 
 echo JBoss Enterprise BRMS 5.3 Rewards Demo Setup Complete.
 echo
