@@ -271,16 +271,12 @@
                               		<input name="Explanation" type="text" class="textbox" id="Explanation" value="" />
                             		</div>	
                             
-                            		<label for="name">Outcome</label>
-                            		<div class="div_texbox">
-                              		<input name="Outcome" type="text" class="textbox" id="Outcome" value="Approved" />
-                            		</div>	
-                            		<div class="div_texbox">
-                              		<input name="Outcome" type="text" class="textbox" id="Outcome" value="Rejected" />
-                            		</div>	
-                            
+                            		<label for="name">Outcome</label>                            
               <div class="button_div">
-                <input name="Submit" type="submit" value="Submit" class="buttons" />
+                <input name="Outcome" type="submit" value="Approved" id="Outcome" class="buttons" />
+              </div>
+              <div class="button_div">
+                <input name="Outcome" type="submit" value="Rejected" id="Outcome" class="buttons" />
               </div>
             </form>
             <div class="clear"></div>
