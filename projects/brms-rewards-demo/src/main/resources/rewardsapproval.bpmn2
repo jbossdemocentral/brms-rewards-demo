@@ -1,231 +1,241 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_8N41gLGaEeG43JbFovWrBA" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
-  <bpmn2:itemDefinition id="_employeeItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_reasonItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_outcomeItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="_explanationItem" structureRef="String"/>
-  <bpmn2:process id="org.jbpm.approval.rewards" drools:packageName="org.jbpm.rewards" drools:version="1" name="Rewards Approval" isExecutable="true">
-    <bpmn2:property id="employee" itemSubjectRef="_employeeItem"/>
-    <bpmn2:property id="reason" itemSubjectRef="_reasonItem"/>
-    <bpmn2:property id="outcome" itemSubjectRef="_outcomeItem"/>
-    <bpmn2:property id="explanation" itemSubjectRef="_explanationItem"/>
-    <bpmn2:startEvent id="_4C4653BD-908A-4B8C-B329-CB61EA65E662" drools:bgcolor="#ffffff" name="">
-      <bpmn2:outgoing>_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E</bpmn2:outgoing>
-    </bpmn2:startEvent>
-    <bpmn2:userTask id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" drools:taskName="ApproveReward" drools:scriptFormat="http://www.java.com/java" name="Approve Reward">
-      <bpmn2:incoming>_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E</bpmn2:incoming>
-      <bpmn2:outgoing>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_8N41gbGaEeG43JbFovWrBA">
-        <bpmn2:dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput" name="TaskName"/>
-        <bpmn2:dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput" name="Employee"/>
-        <bpmn2:dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ReasonInput" name="Reason"/>
-        <bpmn2:dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput" name="Comment"/>
-        <bpmn2:dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput" name="GroupId"/>
-        <bpmn2:dataOutput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ExplanationOutput" name="Explanation"/>
-        <bpmn2:dataOutput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_OutcomeOutput" name="Outcome"/>
-        <bpmn2:inputSet id="_8N41grGaEeG43JbFovWrBA">
-          <bpmn2:dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ReasonInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput</bpmn2:dataInputRefs>
-        </bpmn2:inputSet>
-        <bpmn2:outputSet id="_8N41g7GaEeG43JbFovWrBA">
-          <bpmn2:dataOutputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ExplanationOutput</bpmn2:dataOutputRefs>
-          <bpmn2:dataOutputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_OutcomeOutput</bpmn2:dataOutputRefs>
-        </bpmn2:outputSet>
-      </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_8N41hLGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N41hbGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N41hrGaEeG43JbFovWrBA">ApproveReward</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N41h7GaEeG43JbFovWrBA">_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N41iLGaEeG43JbFovWrBA">
-        <bpmn2:sourceRef>employee</bpmn2:sourceRef>
-        <bpmn2:targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N41ibGaEeG43JbFovWrBA">
-        <bpmn2:sourceRef>reason</bpmn2:sourceRef>
-        <bpmn2:targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ReasonInput</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N41irGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N41i7GaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N41jLGaEeG43JbFovWrBA">You need to approve this reward.</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N41jbGaEeG43JbFovWrBA">_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N41jrGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N41j7GaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N41kLGaEeG43JbFovWrBA">HR</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N41kbGaEeG43JbFovWrBA">_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_8N41krGaEeG43JbFovWrBA">
-        <bpmn2:sourceRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ExplanationOutput</bpmn2:sourceRef>
-        <bpmn2:targetRef>explanation</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_8N41k7GaEeG43JbFovWrBA">
-        <bpmn2:sourceRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_OutcomeOutput</bpmn2:sourceRef>
-        <bpmn2:targetRef>outcome</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-    </bpmn2:userTask>
-    <bpmn2:exclusiveGateway id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" drools:bgcolor="#ffffff" drools:dg="" name="" gatewayDirection="Diverging">
-      <bpmn2:incoming>_7-_D93D5F2B-8CC0-471F-810C-11A9A97DB590</bpmn2:incoming>
-      <bpmn2:outgoing>_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_F0B44D5C-BD35-4DA2-9A65-D5356580E060</bpmn2:outgoing>
-      <bpmn2:outgoing>_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_8</bpmn2:outgoing>
-    </bpmn2:exclusiveGateway>
-    <bpmn2:endEvent id="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" drools:bgcolor="#ffffff" name="">
-      <bpmn2:incoming>_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_F0B44D5C-BD35-4DA2-9A65-D5356580E060</bpmn2:incoming>
-      <bpmn2:terminateEventDefinition id="_8N41lLGaEeG43JbFovWrBA"/>
-    </bpmn2:endEvent>
-    <bpmn2:endEvent id="_7F317A87-820C-449C-9205-7FE630D4A68C" drools:bgcolor="#ffffff" name="">
-      <bpmn2:incoming>_8-_7F317A87-820C-449C-9205-7FE630D4A68C</bpmn2:incoming>
-      <bpmn2:terminateEventDefinition id="_8N41lbGaEeG43JbFovWrBA"/>
-    </bpmn2:endEvent>
-    <bpmn2:task id="_7" drools:taskName="Log" name="Log">
-      <bpmn2:incoming>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7</bpmn2:incoming>
-      <bpmn2:outgoing>_7-_D93D5F2B-8CC0-471F-810C-11A9A97DB590</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_8N41lrGaEeG43JbFovWrBA">
-        <bpmn2:dataInput id="_7_TaskNameInput" name="TaskName"/>
-        <bpmn2:dataInput id="_7_MessageInput" name="Message"/>
-        <bpmn2:inputSet id="_8N41l7GaEeG43JbFovWrBA">
-          <bpmn2:dataInputRefs>_7_MessageInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_7_TaskNameInput</bpmn2:dataInputRefs>
-        </bpmn2:inputSet>
-        <bpmn2:outputSet id="_8N41mLGaEeG43JbFovWrBA"/>
-      </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_8N41mbGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_7_TaskNameInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N41mrGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N41m7GaEeG43JbFovWrBA">Log</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N41nLGaEeG43JbFovWrBA">_7_TaskNameInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N41nbGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_7_MessageInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N41nrGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N41n7GaEeG43JbFovWrBA">Reward for #{employee}: #{outcome} (#{reason})</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N41oLGaEeG43JbFovWrBA">_7_MessageInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-    </bpmn2:task>
-    <bpmn2:task id="_8" drools:taskName="Email" name="Email">
-      <bpmn2:incoming>_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_8</bpmn2:incoming>
-      <bpmn2:outgoing>_8-_7F317A87-820C-449C-9205-7FE630D4A68C</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_8N41obGaEeG43JbFovWrBA">
-        <bpmn2:dataInput id="_8_TaskNameInput" name="TaskName"/>
-        <bpmn2:dataInput id="_8_BodyInput" name="Body"/>
-        <bpmn2:dataInput id="_8_SubjectInput" name="Subject"/>
-        <bpmn2:dataInput id="_8_ToInput" name="To"/>
-        <bpmn2:dataInput id="_8_FromInput" name="From"/>
-        <bpmn2:inputSet id="_8N41orGaEeG43JbFovWrBA">
-          <bpmn2:dataInputRefs>_8_BodyInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_8_SubjectInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_8_ToInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_8_FromInput</bpmn2:dataInputRefs>
-          <bpmn2:dataInputRefs>_8_TaskNameInput</bpmn2:dataInputRefs>
-        </bpmn2:inputSet>
-        <bpmn2:outputSet id="_8N5ckLGaEeG43JbFovWrBA"/>
-      </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_8N5ckbGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_8_TaskNameInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N5ckrGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N5ck7GaEeG43JbFovWrBA">Email</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N5clLGaEeG43JbFovWrBA">_8_TaskNameInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N5clbGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_8_BodyInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N5clrGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N5cl7GaEeG43JbFovWrBA">Congratulations!</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N5cmLGaEeG43JbFovWrBA">_8_BodyInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N5cmbGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_8_SubjectInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N5cmrGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N5cm7GaEeG43JbFovWrBA">You received a reward!</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N5cnLGaEeG43JbFovWrBA">_8_SubjectInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N5cnbGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_8_ToInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N5cnrGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N5cn7GaEeG43JbFovWrBA">#{employee}@info.com</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N5coLGaEeG43JbFovWrBA">_8_ToInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_8N5cobGaEeG43JbFovWrBA">
-        <bpmn2:targetRef>_8_FromInput</bpmn2:targetRef>
-        <bpmn2:assignment id="_8N5corGaEeG43JbFovWrBA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_8N5co7GaEeG43JbFovWrBA">rewards@info.com</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_8N5cpLGaEeG43JbFovWrBA">_8_FromInput</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-    </bpmn2:task>
-    <bpmn2:sequenceFlow id="_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" sourceRef="_4C4653BD-908A-4B8C-B329-CB61EA65E662" targetRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E"/>
-    <bpmn2:sequenceFlow id="_7-_D93D5F2B-8CC0-471F-810C-11A9A97DB590" sourceRef="_7" targetRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590"/>
-    <bpmn2:sequenceFlow id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_F0B44D5C-BD35-4DA2-9A65-D5356580E060" drools:priority="2" name="Rejected" sourceRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" targetRef="_F0B44D5C-BD35-4DA2-9A65-D5356580E060">
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_8N5cpbGaEeG43JbFovWrBA" language="http://www.java.com/java"><![CDATA[return true;]]></bpmn2:conditionExpression>
-    </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="_8-_7F317A87-820C-449C-9205-7FE630D4A68C" sourceRef="_8" targetRef="_7F317A87-820C-449C-9205-7FE630D4A68C"/>
-    <bpmn2:sequenceFlow id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7" sourceRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" targetRef="_7"/>
-    <bpmn2:sequenceFlow id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_8" drools:priority="1" name="Approved" sourceRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" targetRef="_8">
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_8N5cprGaEeG43JbFovWrBA" language="http://www.java.com/java"><![CDATA[return outcome == "Approved";]]></bpmn2:conditionExpression>
-    </bpmn2:sequenceFlow>
-  </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_8N5cp7GaEeG43JbFovWrBA">
-    <bpmndi:BPMNPlane id="_8N5cqLGaEeG43JbFovWrBA" bpmnElement="org.jbpm.approval.rewards">
-      <bpmndi:BPMNShape id="_8N5cqbGaEeG43JbFovWrBA" bpmnElement="_4C4653BD-908A-4B8C-B329-CB61EA65E662">
-        <dc:Bounds height="30.0" width="30.0" x="25.0" y="65.0"/>
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.omg.org/bpmn20"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_employeeItem" structureRef="String" />
+  <itemDefinition id="_reasonItem" structureRef="String" />
+  <itemDefinition id="_outcomeItem" structureRef="String" />
+  <itemDefinition id="_explanationItem" structureRef="String" />
+
+  <process processType="Private" isExecutable="true" id="org.jbpm.approval.rewards" name="Rewards Approval" tns:packageName="org.jbpm.rewards" tns:version="1" >
+
+    <!-- process variables -->
+    <property id="employee" itemSubjectRef="_employeeItem"/>
+    <property id="reason" itemSubjectRef="_reasonItem"/>
+    <property id="outcome" itemSubjectRef="_outcomeItem"/>
+    <property id="explanation" itemSubjectRef="_explanationItem"/>
+
+    <!-- nodes -->
+    <startEvent id="_4C4653BD-908A-4B8C-B329-CB61EA65E662" name="" />
+    <userTask id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" name="Approve Reward" >
+      <ioSpecification>
+        <dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput" name="Employee" />
+        <dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ReasonInput" name="Reason" />
+        <dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput" name="Comment" />
+        <dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput" name="TaskName" />
+        <dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput" name="GroupId" />
+        <dataOutput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ExplanationOutput" name="Explanation" />
+        <dataOutput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_OutcomeOutput" name="Outcome" />
+        <inputSet>
+          <dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput</dataInputRefs>
+          <dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ReasonInput</dataInputRefs>
+          <dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput</dataInputRefs>
+          <dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ExplanationOutput</dataOutputRefs>
+          <dataOutputRefs>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_OutcomeOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>employee</sourceRef>
+        <targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>reason</sourceRef>
+        <targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ReasonInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">You need to approve this reward.</from>
+          <to xsi:type="tFormalExpression">_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">ApproveReward</from>
+          <to xsi:type="tFormalExpression">_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">HR</from>
+          <to xsi:type="tFormalExpression">_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_ExplanationOutput</sourceRef>
+        <targetRef>explanation</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_OutcomeOutput</sourceRef>
+        <targetRef>outcome</targetRef>
+      </dataOutputAssociation>
+    </userTask>
+    <exclusiveGateway id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" name="" gatewayDirection="Diverging" />
+    <endEvent id="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" name="" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <endEvent id="_7F317A87-820C-449C-9205-7FE630D4A68C" name="" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <task id="_7" name="Log" tns:taskName="Log" >
+      <ioSpecification>
+        <dataInput id="_7_MessageInput" name="Message" />
+        <dataInput id="_7_TaskNameInput" name="TaskName" />
+        <inputSet>
+          <dataInputRefs>_7_MessageInput</dataInputRefs>
+          <dataInputRefs>_7_TaskNameInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_7_MessageInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Reward for #{employee}: #{outcome} (#{reason})</from>
+          <to xsi:type="tFormalExpression">_7_MessageInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_7_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Log</from>
+          <to xsi:type="tFormalExpression">_7_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+    </task>
+    <task id="_8" name="Email" tns:taskName="Email" >
+      <ioSpecification>
+        <dataInput id="_8_BodyInput" name="Body" />
+        <dataInput id="_8_SubjectInput" name="Subject" />
+        <dataInput id="_8_ToInput" name="To" />
+        <dataInput id="_8_TaskNameInput" name="TaskName" />
+        <dataInput id="_8_FromInput" name="From" />
+        <inputSet>
+          <dataInputRefs>_8_BodyInput</dataInputRefs>
+          <dataInputRefs>_8_SubjectInput</dataInputRefs>
+          <dataInputRefs>_8_ToInput</dataInputRefs>
+          <dataInputRefs>_8_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_8_FromInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_8_BodyInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Congratulations!</from>
+          <to xsi:type="tFormalExpression">_8_BodyInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_8_SubjectInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">You received a reward!</from>
+          <to xsi:type="tFormalExpression">_8_SubjectInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_8_ToInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{employee}@info.com</from>
+          <to xsi:type="tFormalExpression">_8_ToInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_8_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Email</from>
+          <to xsi:type="tFormalExpression">_8_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_8_FromInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">rewards@info.com</from>
+          <to xsi:type="tFormalExpression">_8_FromInput</to>
+        </assignment>
+      </dataInputAssociation>
+    </task>
+
+    <!-- connections -->
+    <sequenceFlow id="_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" sourceRef="_4C4653BD-908A-4B8C-B329-CB61EA65E662" targetRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" />
+    <sequenceFlow id="_7-_D93D5F2B-8CC0-471F-810C-11A9A97DB590" sourceRef="_7" targetRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" />
+    <sequenceFlow id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_F0B44D5C-BD35-4DA2-9A65-D5356580E060" sourceRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" targetRef="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" name="Rejected" tns:priority="2" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_8-_7F317A87-820C-449C-9205-7FE630D4A68C" sourceRef="_8" targetRef="_7F317A87-820C-449C-9205-7FE630D4A68C" />
+    <sequenceFlow id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7" sourceRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" targetRef="_7" />
+    <sequenceFlow id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_8" sourceRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" targetRef="_8" name="Approved" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return outcome == "Approved";</conditionExpression>
+    </sequenceFlow>
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="org.jbpm.approval.rewards" >
+      <bpmndi:BPMNShape bpmnElement="_4C4653BD-908A-4B8C-B329-CB61EA65E662" >
+        <dc:Bounds x="16" y="56" width="48" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_8N5cqrGaEeG43JbFovWrBA" bpmnElement="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E">
-        <dc:Bounds height="61.0" width="135.0" x="96.0" y="50.0"/>
+      <bpmndi:BPMNShape bpmnElement="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" >
+        <dc:Bounds x="96" y="50" width="135" height="61" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_8N5cq7GaEeG43JbFovWrBA" bpmnElement="_D93D5F2B-8CC0-471F-810C-11A9A97DB590">
-        <dc:Bounds height="40.0" width="40.0" x="399.0" y="60.0"/>
+      <bpmndi:BPMNShape bpmnElement="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" >
+        <dc:Bounds x="395" y="56" width="48" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_8N5crLGaEeG43JbFovWrBA" bpmnElement="_F0B44D5C-BD35-4DA2-9A65-D5356580E060">
-        <dc:Bounds height="28.0" width="28.0" x="750.0" y="63.0"/>
+      <bpmndi:BPMNShape bpmnElement="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" >
+        <dc:Bounds x="541" y="56" width="48" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_8N5crbGaEeG43JbFovWrBA" bpmnElement="_7F317A87-820C-449C-9205-7FE630D4A68C">
-        <dc:Bounds height="28.0" width="28.0" x="700.0" y="164.0"/>
+      <bpmndi:BPMNShape bpmnElement="_7F317A87-820C-449C-9205-7FE630D4A68C" >
+        <dc:Bounds x="690" y="154" width="48" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_8N5crrGaEeG43JbFovWrBA" bpmnElement="_7">
-        <dc:Bounds height="48.0" width="100.0" x="263.0" y="56.0"/>
+      <bpmndi:BPMNShape bpmnElement="_7" >
+        <dc:Bounds x="263" y="56" width="100" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_8N5cr7GaEeG43JbFovWrBA" bpmnElement="_8">
-        <dc:Bounds height="48.0" width="161.0" x="477.0" y="155.0"/>
+      <bpmndi:BPMNShape bpmnElement="_8" >
+        <dc:Bounds x="477" y="155" width="161" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="_8N5csLGaEeG43JbFovWrBA" bpmnElement="_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E">
-        <di:waypoint xsi:type="dc:Point" x="40.0" y="80.0"/>
-        <di:waypoint xsi:type="dc:Point" x="163.5" y="80.5"/>
+      <bpmndi:BPMNEdge bpmnElement="_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" >
+        <di:waypoint x="40" y="80" />
+        <di:waypoint x="163" y="80" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="_8N5csbGaEeG43JbFovWrBA" bpmnElement="_7-_D93D5F2B-8CC0-471F-810C-11A9A97DB590">
-        <di:waypoint xsi:type="dc:Point" x="313.0" y="80.0"/>
-        <di:waypoint xsi:type="dc:Point" x="419.0" y="80.0"/>
+      <bpmndi:BPMNEdge bpmnElement="_7-_D93D5F2B-8CC0-471F-810C-11A9A97DB590" >
+        <di:waypoint x="313" y="80" />
+        <di:waypoint x="419" y="80" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="_8N5csrGaEeG43JbFovWrBA" bpmnElement="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_F0B44D5C-BD35-4DA2-9A65-D5356580E060">
-        <di:waypoint xsi:type="dc:Point" x="419.0" y="80.0"/>
-        <di:waypoint xsi:type="dc:Point" x="764.0" y="77.0"/>
+      <bpmndi:BPMNEdge bpmnElement="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_F0B44D5C-BD35-4DA2-9A65-D5356580E060" >
+        <di:waypoint x="419" y="80" />
+        <di:waypoint x="565" y="80" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="_8N5cs7GaEeG43JbFovWrBA" bpmnElement="_8-_7F317A87-820C-449C-9205-7FE630D4A68C">
-        <di:waypoint xsi:type="dc:Point" x="557.5" y="179.0"/>
-        <di:waypoint xsi:type="dc:Point" x="714.0" y="178.0"/>
+      <bpmndi:BPMNEdge bpmnElement="_8-_7F317A87-820C-449C-9205-7FE630D4A68C" >
+        <di:waypoint x="557" y="179" />
+        <di:waypoint x="714" y="178" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="_8N5ctLGaEeG43JbFovWrBA" bpmnElement="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7">
-        <di:waypoint xsi:type="dc:Point" x="163.5" y="80.5"/>
-        <di:waypoint xsi:type="dc:Point" x="313.0" y="80.0"/>
+      <bpmndi:BPMNEdge bpmnElement="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7" >
+        <di:waypoint x="163" y="80" />
+        <di:waypoint x="313" y="80" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="_8N5ctbGaEeG43JbFovWrBA" bpmnElement="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_8">
-        <di:waypoint xsi:type="dc:Point" x="419.0" y="80.0"/>
-        <di:waypoint xsi:type="dc:Point" x="421.0" y="180.0"/>
-        <di:waypoint xsi:type="dc:Point" x="557.5" y="179.0"/>
+      <bpmndi:BPMNEdge bpmnElement="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_8" >
+        <di:waypoint x="419" y="80" />
+        <di:waypoint x="421" y="180" />
+        <di:waypoint x="557" y="179" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-</bpmn2:definitions>
+
+</definitions>
