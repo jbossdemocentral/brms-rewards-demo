@@ -13,7 +13,6 @@ import org.drools.runtime.StatefulKnowledgeSession;
 import org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler;
 import org.jbpm.process.workitem.wsht.AsyncWSHumanTaskHandler;
 import org.jbpm.task.service.TaskClient;
-import org.jbpm.task.service.TaskService;
 import org.jbpm.task.service.hornetq.HornetQTaskClientConnector;
 import org.jbpm.task.service.hornetq.HornetQTaskClientHandler;
 
@@ -45,10 +44,7 @@ public class ProcessMain {
 		params.put("reason", "Amazing demos for JBoss World");
 		
 		// start a new process instance
-		ksession.startProcess("org.jbpm.approval.rewards", params);
-		
-		// exit any threads.
-		System.exit(0);
+		ksession.startProcess("org.jbpm.approval.rewards", params);		
 	}
 
 	private static KnowledgeBase readKnowledgeBase() throws Exception {
