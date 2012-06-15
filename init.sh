@@ -70,10 +70,10 @@ cp support/jbpm-human-task-war-web.xml $SERVER_DIR/deploy/jbpm-human-task.war/WE
 
 echo "  - enabling work items by registering Email and Log nodes..."
 echo
-cp support/drools.session.conf $SERVER_DIR/deploy/jbpm-gwt-console-server.war/WEB-INF/classes/META-INF
-cp support/CustomWorkItemHandlers.conf $SERVER_DIR/deploy/jbpm-gwt-console-server.war/WEB-INF/classes/META-INF
-chmod 644 $SERVER_DIR/deploy/jbpm-gwt-console-server.war/WEB-INF/classes/META-INF/drools.session.conf
-chmod 644 $SERVER_DIR/deploy/jbpm-gwt-console-server.war/WEB-INF/classes/META-INF/CustomWorkItemHandlers.conf
+cp support/drools.session.conf $SERVER_DIR/deploy/business-central-server.war/WEB-INF/classes/META-INF
+cp support/CustomWorkItemHandlers.conf $SERVER_DIR/deploy/business-central-server.war/WEB-INF/classes/META-INF
+chmod 644 $SERVER_DIR/deploy/business-central-server.war/WEB-INF/classes/META-INF/drools.session.conf
+chmod 644 $SERVER_DIR/deploy/business-central-server.war/WEB-INF/classes/META-INF/CustomWorkItemHandlers.conf
 
 echo "  - enabling demo accounts user setup for hypersonicDB entries in hypersonicDB.script file...."
 echo
