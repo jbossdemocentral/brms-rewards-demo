@@ -278,15 +278,13 @@
       </dataInputAssociation>
     </task>
     <scriptTask id="_12" name="SetOutcome" scriptFormat="http://www.java.com/java" >
-      <script>System.out.println("Checking for outcome value.");
-
-if (outcome == null) {
+      <script>if (outcome == null) {
 
 	System.out.println("Outcome is empty.");
 	kcontext.setVariable("outcome", "Approved");
 };
 
-System.out.println("Outcome is now set to: " + outcome + ".");
+System.out.println("Outcome is now set to: " + kcontext.getVariable("outcome") + ".");
 	
 	</script>
     </scriptTask>

@@ -49,7 +49,7 @@ public class RewardsApprovalExtendedTest extends JbpmJUnitTestCase {
 	}
 
 	@Test
-	public void rewardApprovedTest() {
+	public void rewardApprovedExtendedTest() {
 		setupTestCase();
 		
 		// start process.
@@ -78,7 +78,7 @@ public class RewardsApprovalExtendedTest extends JbpmJUnitTestCase {
 	}
 	
 	@Test
-	public void rewardRejectedTest() {
+	public void rewardRejectedExtendedTest() {
 		setupTestCase();
 		
 		// start process.
