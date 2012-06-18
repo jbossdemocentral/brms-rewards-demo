@@ -17,7 +17,7 @@
   <itemDefinition id="_outcomeItem" structureRef="String" />
   <itemDefinition id="_explanationItem" structureRef="String" />
 
-  <process processType="Private" isExecutable="true" id="org.jbpm.approval.rewards" name="Rewards Approval" tns:packageName="org.jbpm.rewards" tns:version="5" >
+  <process processType="Private" isExecutable="true" id="org.jbpm.approval.rewards.extended" name="Rewards Approval Extended" tns:packageName="org.jbpm.rewards" tns:version="1" >
 
     <!-- process variables -->
     <property id="employee" itemSubjectRef="_employeeItem"/>
@@ -296,7 +296,7 @@
   </process>
 
   <bpmndi:BPMNDiagram>
-    <bpmndi:BPMNPlane bpmnElement="org.jbpm.approval.rewards" >
+    <bpmndi:BPMNPlane bpmnElement="org.jbpm.approval.rewards.extended" >
       <bpmndi:BPMNShape bpmnElement="_4C4653BD-908A-4B8C-B329-CB61EA65E662" >
         <dc:Bounds x="16" y="56" width="48" height="48" />
       </bpmndi:BPMNShape>
