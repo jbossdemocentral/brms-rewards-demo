@@ -224,7 +224,7 @@
 </style>
 <div id="container">
 	<div id="header">
-		User Task Form: Rewards Approval Extended.ApproveReward
+		User Task Form: Rewards Approval Extended.ApproveRewardExtended
 	</div>
 	<div id="content">
 		<fieldset>
@@ -281,7 +281,7 @@
             </form>
             <div class="clear"></div>
           </fieldset>
-         	</div>
+	</div>
 	<div id="footer">
 	</div>
 </div>

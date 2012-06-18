@@ -51,24 +51,44 @@
 		var i=0;
 		var myInputs = new Array();
 
-					myInputs[i] = document.getElementById("Explanation");
+					myInputs[i] = document.getElementById("employee");
 					i++;
 				
-					myInputs[i] = document.getElementById("Outcome");
+					myInputs[i] = document.getElementById("reason");
+					i++;
+				
+					myInputs[i] = document.getElementById("outcome");
+					i++;
+				
+					myInputs[i] = document.getElementById("explanation");
 					i++;
 				
 		
 		var j=0;
 
 						if(notEmpty(myInputs[j]) && !isAlphanumeric(myInputs[j])) {
-							alert("Please enter valid Explanation");
+							alert("Please enter valid employee");
 							myInputs[j].focus();
 							return false;
 						}	
 					j++;
 				
 						if(notEmpty(myInputs[j]) && !isAlphanumeric(myInputs[j])) {
-							alert("Please enter valid Outcome");
+							alert("Please enter valid reason");
+							myInputs[j].focus();
+							return false;
+						}	
+					j++;
+				
+						if(notEmpty(myInputs[j]) && !isAlphanumeric(myInputs[j])) {
+							alert("Please enter valid outcome");
+							myInputs[j].focus();
+							return false;
+						}	
+					j++;
+				
+						if(notEmpty(myInputs[j]) && !isAlphanumeric(myInputs[j])) {
+							alert("Please enter valid explanation");
 							myInputs[j].focus();
 							return false;
 						}	
@@ -224,64 +244,30 @@
 </style>
 <div id="container">
 	<div id="header">
-		User Task Form: Rewards Approval Extended.ApproveReward
+		New Process Instance: org.jbpm.rewards.Rewards Approval Extended
 	</div>
 	<div id="content">
 		<fieldset>
-            <legend>Task Info</legend>
-            	<label for="name">Owners</label>
-            	<div class="div_checkbox">
-            	
-            	</div>
-            	<label for="name">Actor ID</label>
-            	<div class="div_checkbox"></div>
-            	<label for="name">Group</label>
-            	<div class="div_checkbox">HR</div>
-            	<label for="name">Skippable</label>
-            	<div class="div_checkbox"></div>
-            	<label for="name">Priority</label>
-            	<div class="div_checkbox"></div>
-            	<label for="name">Comment</label>
-            	<div class="div_checkbox">You need to approve this reward.</div>
-            <div class="clear"></div>
-          </fieldset>
-	
-		<fieldset>
-            <legend>Task Inputs</legend>
-
-                            		<label for="name">Employee</label>
-                            		<div class="div_checkbox">
-                              		${Employee}
-                            		</div>
-                            
-                            		<label for="name">Reason</label>
-                            		<div class="div_checkbox">
-                              		${Reason}
-                            		</div>
-                            
-            <div class="clear"></div>
-          </fieldset>
-          
-          <fieldset>
-            <legend>Task Outputs</legend>
+            <legend>Process inputs</legend>
             <form action="complete" method="POST" enctype="multipart/form-data" onsubmit="return taskFormValidator()">
 
-                            		<label for="name">Explanation</label>
+                            		<label for="name">employee</label>
                             		<div class="div_texbox">
-                              		<input name="Explanation" type="text" class="textbox" id="Explanation" value="" />
+                              		<input name="employee" type="text" class="textbox" id="employee" value="" />
                             		</div>	
                             
-                            		<label for="name">Outcome</label>                            
+                            		<label for="name">reason</label>
+                            		<div class="div_texbox">
+                              		<input name="reason" type="text" class="textbox" id="reason" value="" />
+                            		</div>	
+              
               <div class="button_div">
-                <input name="Outcome" type="submit" value="Approved" id="Outcome" class="buttons" />
-              </div>
-              <div class="button_div">
-                <input name="Outcome" type="submit" value="Rejected" id="Outcome" class="buttons" />
+                <input name="Submit" type="submit" value="Submit" class="buttons" />
               </div>
             </form>
             <div class="clear"></div>
           </fieldset>
-         	</div>
+	</div>
 	<div id="footer">
 	</div>
 </div>
