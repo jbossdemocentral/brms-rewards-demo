@@ -23,19 +23,19 @@ import org.junit.Test;
 /**
  * This is a sample file to launch a process.
  */
-public class RewardsApprovalTest extends JbpmJUnitTestCase {
+public class RewardsApprovalExtendedTest extends JbpmJUnitTestCase {
 
 	private static StatefulKnowledgeSession ksession;
 	private static TaskService taskService;
 	private static Map<String, Object> params;
 	private static ProcessInstance processInstance;
 	
-	public RewardsApprovalTest() {
+	public RewardsApprovalExtendedTest() {
 		super(true);
 	}
 
 	private void setupTestCase() {		
-		ksession = createKnowledgeSession("rewardsapproval.bpmn2");
+		ksession = createKnowledgeSession("rewardsapprovalextended.bpmn2");
 		taskService = getTaskService(ksession);
 	
 		ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());
@@ -53,7 +53,7 @@ public class RewardsApprovalTest extends JbpmJUnitTestCase {
 		setupTestCase();
 		
 		// start process.
-		processInstance = ksession.startProcess("org.jbpm.approval.rewards", params);
+		processInstance = ksession.startProcess("org.jbpm.approval.rewards.extended", params);
 
 		// execute task by Mary from HR.
 		List<TaskSummary> list = taskService.getTasksAssignedAsPotentialOwner("mary", new ArrayList<String>(), "en-UK");
@@ -81,7 +81,7 @@ public class RewardsApprovalTest extends JbpmJUnitTestCase {
 		setupTestCase();
 		
 		// start process.
-		processInstance = ksession.startProcess("org.jbpm.approval.rewards", params);
+		processInstance = ksession.startProcess("org.jbpm.approval.rewards.extended", params);
 
 		// execute task by John from HR.
 		List<TaskSummary> list = taskService.getTasksAssignedAsPotentialOwner("john", new ArrayList<String>(), "en-UK");

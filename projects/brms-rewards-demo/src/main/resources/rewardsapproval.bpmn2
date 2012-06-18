@@ -107,7 +107,7 @@
       <dataInputAssociation>
         <targetRef>_7_MessageInput</targetRef>
         <assignment>
-          <from xsi:type="tFormalExpression">Reward for #{employee}: #{outcome} (#{reason})</from>
+          <from xsi:type="tFormalExpression">Reward for #{employee}: Outcome is #{outcome}, Reason given is (#{reason}).</from>
           <to xsi:type="tFormalExpression">_7_MessageInput</to>
         </assignment>
       </dataInputAssociation>
