@@ -87,10 +87,10 @@
       </dataOutputAssociation>
     </userTask>
     <exclusiveGateway id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" name="" gatewayDirection="Diverging" />
-    <endEvent id="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" name="" >
+    <endEvent id="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" name="End Rejected" >
         <terminateEventDefinition/>
     </endEvent>
-    <endEvent id="_7F317A87-820C-449C-9205-7FE630D4A68C" name="" >
+    <endEvent id="_7F317A87-820C-449C-9205-7FE630D4A68C" name="End Approved" >
         <terminateEventDefinition/>
     </endEvent>
     <task id="_7" name="Log" tns:taskName="Log" >

@@ -73,6 +73,7 @@ public class RewardsApprovalExtendedTest extends JbpmJUnitTestCase {
 		// add results of task.
 		taskService.complete(task.getId(), "mary", content);
 		assertProcessInstanceCompleted(processInstance.getId(), ksession);
+		assertNodeTriggered(processInstance.getId(), "End Approved");
 		ksession.dispose();
 	}
 	
@@ -100,7 +101,10 @@ public class RewardsApprovalExtendedTest extends JbpmJUnitTestCase {
 		
 		// add results of task.
 		taskService.complete(task.getId(), "john", content);
+		
+		// test for completion and in correct end node.
 		assertProcessInstanceCompleted(processInstance.getId(), ksession);
+		assertNodeTriggered(processInstance.getId(), "End Rejected");
 		ksession.dispose();
 	}
 	
