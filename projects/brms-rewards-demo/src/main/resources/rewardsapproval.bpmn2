@@ -182,7 +182,7 @@
     <sequenceFlow id="_8-_7F317A87-820C-449C-9205-7FE630D4A68C" sourceRef="_8" targetRef="_7F317A87-820C-449C-9205-7FE630D4A68C" />
     <sequenceFlow id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7" sourceRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" targetRef="_7" />
     <sequenceFlow id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_8" sourceRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" targetRef="_8" name="Approved" tns:priority="1" >
-      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return outcome == "Approved";</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return kcontext.getVariable("outcome").equals("Approved");</conditionExpression>
     </sequenceFlow>
 
   </process>

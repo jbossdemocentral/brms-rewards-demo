@@ -277,33 +277,21 @@
         </assignment>
       </dataInputAssociation>
     </task>
-    <scriptTask id="_12" name="SetOutcome" scriptFormat="http://www.java.com/java" >
-      <script>if (outcome == null) {
-
-	System.out.println("Outcome is empty.");
-	kcontext.setVariable("outcome", "Approved");
-};
-
-System.out.println("Outcome is now set to: " + kcontext.getVariable("outcome") + ".");
-	
-	</script>
-    </scriptTask>
 
     <!-- connections -->
     <sequenceFlow id="_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" sourceRef="_4C4653BD-908A-4B8C-B329-CB61EA65E662" targetRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" />
     <sequenceFlow id="_7-_D93D5F2B-8CC0-471F-810C-11A9A97DB590" sourceRef="_7" targetRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" />
     <sequenceFlow id="_3511A1C5-1972-4C43-9D2C-0DBD2762506A-_F0B44D5C-BD35-4DA2-9A65-D5356580E060" sourceRef="_3511A1C5-1972-4C43-9D2C-0DBD2762506A" targetRef="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" />
     <sequenceFlow id="_8-_7F317A87-820C-449C-9205-7FE630D4A68C" sourceRef="_8" targetRef="_7F317A87-820C-449C-9205-7FE630D4A68C" />
-    <sequenceFlow id="_12-_7" sourceRef="_12" targetRef="_7" />
+    <sequenceFlow id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7" sourceRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" targetRef="_7" />
     <sequenceFlow id="_11-_8" sourceRef="_11" targetRef="_8" />
     <sequenceFlow id="_10-_3511A1C5-1972-4C43-9D2C-0DBD2762506A" sourceRef="_10" targetRef="_3511A1C5-1972-4C43-9D2C-0DBD2762506A" />
     <sequenceFlow id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_10" sourceRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" targetRef="_10" name="rejected" tns:priority="2" >
-      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return outcome == "Rejected";</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return kcontext.getVariable("outcome").equals("Rejected");</conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590-_11" sourceRef="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" targetRef="_11" name="approved" tns:priority="1" >
-      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return outcome == "Approved";</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return kcontext.getVariable("outcome").equals("Approved");</conditionExpression>
     </sequenceFlow>
-    <sequenceFlow id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_12" sourceRef="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" targetRef="_12" />
 
   </process>
 
@@ -339,9 +327,6 @@ System.out.println("Outcome is now set to: " + kcontext.getVariable("outcome") +
       <bpmndi:BPMNShape bpmnElement="_11" >
         <dc:Bounds x="484" y="152" width="175" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_12" >
-        <dc:Bounds x="202" y="162" width="80" height="48" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_4C4653BD-908A-4B8C-B329-CB61EA65E662-_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" >
         <di:waypoint x="40" y="80" />
         <di:waypoint x="163" y="80" />
@@ -358,8 +343,8 @@ System.out.println("Outcome is now set to: " + kcontext.getVariable("outcome") +
         <di:waypoint x="781" y="176" />
         <di:waypoint x="910" y="175" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_12-_7" >
-        <di:waypoint x="242" y="186" />
+      <bpmndi:BPMNEdge bpmnElement="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_7" >
+        <di:waypoint x="163" y="80" />
         <di:waypoint x="313" y="80" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_11-_8" >
@@ -379,10 +364,6 @@ System.out.println("Outcome is now set to: " + kcontext.getVariable("outcome") +
         <di:waypoint x="419" y="80" />
         <di:waypoint x="419" y="178" />
         <di:waypoint x="571" y="176" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E-_12" >
-        <di:waypoint x="163" y="80" />
-        <di:waypoint x="242" y="186" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

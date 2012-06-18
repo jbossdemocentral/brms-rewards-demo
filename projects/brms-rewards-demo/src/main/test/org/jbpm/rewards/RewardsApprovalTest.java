@@ -11,8 +11,8 @@ import java.util.Map;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jboss.logging.Logger;
-import org.jboss.serial.io.JBossObjectOutputStream;
 import org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler;
+import org.jbpm.process.workitem.wsht.SyncWSHumanTaskHandler;
 import org.jbpm.task.AccessType;
 import org.jbpm.task.TaskService;
 import org.jbpm.task.query.TaskSummary;
@@ -37,10 +37,18 @@ public class RewardsApprovalTest extends JbpmJUnitTestCase {
 	private void setupTestCase() {		
 		ksession = createKnowledgeSession("rewardsapproval.bpmn2");
 		taskService = getTaskService(ksession);
+		
+		// register human task work item.
+		SyncWSHumanTaskHandler humanTaskHandler = new SyncWSHumanTaskHandler(
+				taskService, ksession);
+			humanTaskHandler.setLocal(true);
+			humanTaskHandler.connect();
+			ksession.getWorkItemManager().registerWorkItemHandler("Human Task", humanTaskHandler);
 	
+		// register other work items
 		ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());
 		ksession.getWorkItemManager().registerWorkItemHandler("Email", new SystemOutWorkItemHandler());
-	
+
 		params = new HashMap<String, Object>();
 		// initialize process parameters.
 		params.put("employee", "erics");
@@ -123,7 +131,7 @@ public class RewardsApprovalTest extends JbpmJUnitTestCase {
 	       
 	    try {
 	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-	        ObjectOutputStream oos = new JBossObjectOutputStream(baos);
+	        ObjectOutputStream oos = new ObjectOutputStream(baos);
 	        oos.writeObject(obj);
 	        oos.flush();
 	        oos.close();
