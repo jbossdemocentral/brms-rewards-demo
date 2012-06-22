@@ -75,15 +75,6 @@ cp support/CustomWorkItemHandlers.conf $SERVER_DIR/deploy/business-central-serve
 chmod 644 $SERVER_DIR/deploy/business-central-server.war/WEB-INF/classes/META-INF/drools.session.conf
 chmod 644 $SERVER_DIR/deploy/business-central-server.war/WEB-INF/classes/META-INF/CustomWorkItemHandlers.conf
 
-echo "  - enabling demo accounts user setup for hypersonicDB entries in hypersonicDB.script file...."
-echo
-if [ -d $SERVER_DIR/data ]; then
-	cp support/hypersonic-localDB.script $SERVER_DIR/data/hypersonic/localDB.script
-else
-	mkdir -p $SERVER_DIR/data/hypersonic
-	cp support/hypersonic-localDB.script $SERVER_DIR/data/hypersonic/localDB.script
-fi
-
 echo JBoss Enterprise BRMS 5.3 Rewards Demo Setup Complete.
 echo
 
