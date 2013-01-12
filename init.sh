@@ -128,10 +128,6 @@ cp support/CustomWorkItemHandlers.conf $SERVER_DIR/business-central-server.war/W
 chmod 644 $SERVER_DIR/business-central-server.war/WEB-INF/classes/META-INF/drools.session.conf
 chmod 644 $SERVER_DIR/business-central-server.war/WEB-INF/classes/META-INF/CustomWorkItemHandlers.conf
 
-echo "  - adding model jar to business central admin console classpath..." 
-echo
-cp support/customereval-model.jar $SERVER_DIR/business-central-server.war/WEB-INF/lib
-
 echo "JBoss Enterprise BRMS ${VERSION} ${DEMO} Setup Complete."
 echo
 
