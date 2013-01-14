@@ -1,8 +1,9 @@
 #!/bin/sh 
-DEMO="Customer Evaluation Demo"
+DEMO="Rewards Demo"
 JBOSS_HOME=./target/jboss-eap-6.0
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
+LIB_DIR=./support/lib
 SRC_DIR=./installs
 EAP=jboss-eap-6.0.1.zip
 BRMS=brms-p-5.3.1.GA-deployable-ee6.zip
@@ -75,14 +76,14 @@ unzip -q jboss-jbpm-engine.zip
 echo "  - copying jBPM client JARs..."
 echo
 unzip -q -d ../$SERVER_DIR jboss-jbpm-engine.zip lib/netty.jar
+cp -r lib ../$LIB_DIR
+cp jbpm-test-5.3.1.BRMS.jar ../$LIB_DIR
+cp jbpm-human-task-5.3.1.BRMS.jar ../$LIB_DIR
+cp jbpm-persistence-jpa-5.3.1.BRMS.jar ../$LIB_DIR
+cp jbpm-workitems-5.3.1.BRMS.jar ../$LIB_DIR
 rm jboss-jbpm-engine.zip
 rm -rf *.jar modeshape.zip *.RSA lib
 rm jboss-brms-engine.zip
-
-# Setup jboss-eap-6 maven repo locally.
-#echo "  - extracting jboss eap 6 maven repo locally into /tmp/${EAP_REPO}..."
-#echo
-#unzip -q -u -d /tmp $EAP_REPO.zip
 
 echo Rounding up, setting permissions and copying support files...
 echo
@@ -127,6 +128,11 @@ cp support/drools.session.conf $SERVER_DIR/business-central-server.war/WEB-INF/c
 cp support/CustomWorkItemHandlers.conf $SERVER_DIR/business-central-server.war/WEB-INF/classes/META-INF
 chmod 644 $SERVER_DIR/business-central-server.war/WEB-INF/classes/META-INF/drools.session.conf
 chmod 644 $SERVER_DIR/business-central-server.war/WEB-INF/classes/META-INF/CustomWorkItemHandlers.conf
+
+echo "  - adding netty dep to business-central-server.war and jbpm-human-task.war..."
+echo
+cp support/MANIFEST.MF $SERVER_DIR/business-central-server.war/WEB-INF/classes/META-INF/
+cp support/MANIFEST.MF $SERVER_DIR/jbpm-human-task.war/WEB-INF/classes/META-INF/
 
 echo "JBoss Enterprise BRMS ${VERSION} ${DEMO} Setup Complete."
 echo
