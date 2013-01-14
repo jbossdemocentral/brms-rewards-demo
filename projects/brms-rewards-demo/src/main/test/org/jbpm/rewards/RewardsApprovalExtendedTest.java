@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
-import org.jboss.logging.Logger;
 import org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler;
 import org.jbpm.process.workitem.wsht.SyncWSHumanTaskHandler;
 import org.jbpm.task.AccessType;
@@ -134,7 +134,7 @@ public class RewardsApprovalExtendedTest extends JbpmJUnitTestCase {
 	        baos.close();
 	        result = baos.toByteArray();
 	    } catch (IOException ioEx) {
-	        Logger.getLogger("UtilityMethods").error("Error converting object to byteArray", ioEx);
+	    	Logger.getLogger("UtilityMethods").error("Error converting object to byteArray", ioEx);
 	    }
 	        
 	    return result;
