@@ -2,6 +2,7 @@ package org.jbpm.rewards;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import org.drools.KnowledgeBase;
 import org.drools.SystemEventListenerFactory;
@@ -93,12 +94,12 @@ public class ProcessTest extends JbpmJUnitTestCase {
 		StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
 
 		// setup task client to use running BRMS server task client.
-		TaskClient client = new TaskClient(new HornetQTaskClientConnector("taskClient",
+		TaskClient client = new TaskClient(new HornetQTaskClientConnector("taskClient" + UUID.randomUUID(),
                 new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
         client.connect("127.0.0.1", 5153);
         CommandBasedHornetQWSHumanTaskHandler handler = new CommandBasedHornetQWSHumanTaskHandler(ksession);
     	handler.setClient(client);
-    	handler.connect();
+//    	handler.connect();
 
     	// register work items.
 		ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());
