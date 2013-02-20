@@ -228,7 +228,7 @@ echo
 echo Now going to build the model jars by generating classes in your project.
 echo
 cd $PRJ_DIR
-mvn clean install
+mvn clean install -DskipTests
 cd ../..
 
 echo "  - copying model jars and configuration to Business Central server..."
