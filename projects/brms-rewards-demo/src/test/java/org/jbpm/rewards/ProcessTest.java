@@ -34,6 +34,8 @@ public class ProcessTest extends JbpmJUnitTestCase {
     private static final String LOCAL_PROCESS_NAME = "rewardsapproval.bpmn2";
     private static final String LOCAL_PROCESS_NAME_EXTENDED = "rewardsapprovalextended.bpmn2";
 
+		TaskClient client;
+
     private static StatefulKnowledgeSession ksession;
 
     @BeforeClass
@@ -46,81 +48,62 @@ public class ProcessTest extends JbpmJUnitTestCase {
     public void setUp() throws Exception {
         super.setUp();
 
-//        // Set up the knowledge session with the process and handlers.
-//        KnowledgeBase kbase = null;
-//        if (USE_RESOURCES_FROM_GUVNOR) {
-//            kbase = createKnowledgeBaseGuvnor(false, GUVNOR_URL, GUVNOR_USER_NAME, GUVNOR_PASSWORD, GUVNOR_PACKAGES);
-//        } else {
-//            // Use the local files.
-//            final Map<String, ResourceType> resources = new HashMap<String, ResourceType>();
-//            resources.put(LOCAL_PROCESS_NAME, ResourceType.BPMN2);
-//            kbase = createKnowledgeBase(resources);
-//        }
-//		// setup task client to use running BRMS server task client.
-//		TaskClient client = new TaskClient(new HornetQTaskClientConnector("taskClient",
-//                new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
-//        AsyncWSHumanTaskHandler handler = new AsyncWSHumanTaskHandler(client, ksession);
-//        handler.setConnection("127.0.0.1", 5446);
-//        
-//        ksession = createKnowledgeSession(kbase);
-//        ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());
-//		ksession.getWorkItemManager().registerWorkItemHandler("Email", new SystemOutWorkItemHandler());
-//		ksession.getWorkItemManager().registerWorkItemHandler("Human Task", handler);
-
+		client = new TaskClient(new HornetQTaskClientConnector("taskClient" + UUID.randomUUID(), 
+					new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
+		client.connect("127.0.0.1", 5153);
     }
 
     @Override
     @After
     public void tearDown() throws Exception {
-        //ksession.dispose();
-
-        super.tearDown();
+    	client.disconnect();
+    	super.tearDown();
     }
 
     @Test
     public void submitEmployee() {
-		// load up the knowledge base
-		KnowledgeBase kbase = null;
-		
-        // Use the local files.
-        final Map<String, ResourceType> resources = new HashMap<String, ResourceType>();
-        resources.put("rewardsapproval.bpmn2", ResourceType.BPMN2);
-        try {
-			kbase = createKnowledgeBase(resources);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
-
-		// setup task client to use running BRMS server task client.
-		TaskClient client = new TaskClient(new HornetQTaskClientConnector("taskClient" + UUID.randomUUID(),
-                new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
-        client.connect("127.0.0.1", 5153);
-        CommandBasedHornetQWSHumanTaskHandler handler = new CommandBasedHornetQWSHumanTaskHandler(ksession);
-    	handler.setClient(client);
-//    	handler.connect();
-
-    	// register work items.
-		ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());
-		ksession.getWorkItemManager().registerWorkItemHandler("Email", new SystemOutWorkItemHandler());
-		ksession.getWorkItemManager().registerWorkItemHandler("Human Task", handler);
-    	
-    	// setup our input request for processing.
-		final Map<String, Object> params = new HashMap<String, Object>();
-		params.put("employee", "erics");
-		params.put("reason", "Amazing demos for JBoss World");
-		
-        System.out.println("=================================================");
-        System.out.println("= Starting Process Submit Employee Test Case.   =");
-        System.out.println("=================================================");
-		// start a new process instance        
-        final ProcessInstance processInstance = ksession.startProcess("org.jbpm.approval.rewards", params);
-
-        // Check whether the process instance has completed successfully.
-        assertProcessInstanceActive(processInstance.getId(), ksession);
-        assertNodeExists(processInstance, "Approve Reward");
-        assertNodeTriggered(processInstance.getId(), "Start", "Approve Reward");
+ 	  	// load up the knowledge base
+ 	  	KnowledgeBase kbase = null;
+ 	  	
+      // Use the local files.
+      final Map<String, ResourceType> resources = new HashMap<String, ResourceType>();
+      resources.put("rewardsapproval.bpmn2", ResourceType.BPMN2);
+      
+			try {
+ 	  		kbase = createKnowledgeBase(resources);
+ 	  	} catch (Exception e) {
+ 	  		// TODO Auto-generated catch block
+ 	  		e.printStackTrace();
+ 	  	}
+ 
+ 	  	StatefulKnowledgeSession ksession = createKnowledgeSession(kbase); 
+ 
+ 	  	// setup task client to use running BRMS server task client.
+ 	  	CommandBasedHornetQWSHumanTaskHandler handler = new CommandBasedHornetQWSHumanTaskHandler(ksession);
+ 	  	handler.setClient(client);
+ 
+ 	  	// register work items.
+ 	  	ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());
+ 	  	ksession.getWorkItemManager().registerWorkItemHandler("Email", new SystemOutWorkItemHandler());
+ 	  	ksession.getWorkItemManager().registerWorkItemHandler("Human Task", handler);
+       	
+       	// setup our input request for processing.
+ 	  	final Map<String, Object> params = new HashMap<String, Object>();
+ 	  	params.put("employee", "erics");
+ 	  	params.put("reason", "Amazing demos for JBoss World");
+ 	  	
+ 	  	System.out.println("=================================================");
+ 	  	System.out.println("= Starting Process Submit Employee Test Case.   =");
+ 	  	System.out.println("=================================================");
+ 	  	
+ 	  	// start a new process instance        
+ 	  	final ProcessInstance processInstance = ksession.startProcess("org.jbpm.approval.rewards", params);
+ 
+ 	  	// Check whether the process instance has completed successfully.
+ 	  	assertProcessInstanceActive(processInstance.getId(), ksession);
+ 	  	assertNodeExists(processInstance, "Approve Reward");
+ 	  	assertNodeTriggered(processInstance.getId(), "Start", "Approve Reward");
     }
 
 }
+
