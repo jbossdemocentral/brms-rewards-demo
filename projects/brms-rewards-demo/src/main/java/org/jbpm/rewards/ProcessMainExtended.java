@@ -31,7 +31,7 @@ public class ProcessMainExtended {
 		TaskClient client = new TaskClient(new HornetQTaskClientConnector("taskClient",
                 new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
         AsyncWSHumanTaskHandler handler = new AsyncWSHumanTaskHandler(client, ksession);
-        handler.setConnection("127.0.0.1", 5446);
+        handler.setConnection("127.0.0.1", 5153);
 		
 		// register work items.
 		ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());

@@ -7,6 +7,7 @@ LIB_DIR=./support/lib
 SRC_DIR=./installs
 EAP=jboss-eap-6.0.1.zip
 BRMS=brms-p-5.3.1.GA-deployable-ee6.zip
+DESIGNER=designer-patched.war
 EAP_REPO=jboss-eap-6.0.1-maven-repository
 VERSION=5.3.1
 
@@ -88,6 +89,15 @@ rm jboss-brms-engine.zip
 echo Rounding up, setting permissions and copying support files...
 echo
 cd ../
+
+echo Updating to the newest web designer...
+echo
+rm -rf $SERVER_DIR/designer.war/*
+unzip -q support/$DESIGNER -d $SERVER_DIR/designer.war
+
+echo "  - set designer to jboss-brms in profile..."
+echo
+cp support/designer-jbpm.xml $SERVER_DIR/designer.war/profiles/jbpm.xml
 
 echo "  - enabling demo accounts logins in brms-users.properties file..."
 echo

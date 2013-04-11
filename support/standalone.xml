@@ -69,6 +69,9 @@
                 <suffix value=".yyyy-MM-dd"/>
                 <append value="true"/>
             </periodic-rotating-file-handler>
+            <logger category="org.jbpm.integration.console.graph.PluginMgr">
+                <level name="ERROR"/>
+            </logger>
             <logger category="com.arjuna">
                 <level name="INFO"/>
             </logger>
