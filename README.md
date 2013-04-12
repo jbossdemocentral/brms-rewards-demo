@@ -12,6 +12,7 @@ For those that can't wait, see README in 'installs' directory, add products,
 run 'init.sh', read output and then read Quick Start Guide that shows you 
 how to demo.
 
+Windows users see support/windows/README for installation.
 
 Released versions
 -----------------
@@ -25,3 +26,5 @@ See the tagged releases for the following versions of the product:
 - v1.3 is BRMS 5.3.1 deployable, running on JBoss EAP 6, cleaner logging.
 
 - v1.4 is updated patched designer war to fix end-of-line removal in code editor.
+
+- v1.5 has Windows installation scripts. 
