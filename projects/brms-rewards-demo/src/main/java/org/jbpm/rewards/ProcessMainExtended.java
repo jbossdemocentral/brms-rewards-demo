@@ -18,6 +18,8 @@ import org.jbpm.task.service.hornetq.HornetQTaskClientConnector;
 import org.jbpm.task.service.hornetq.HornetQTaskClientHandler;
 
 /**
+ * Rewards Extended Process
+ * 
  * Before launching this process start file, we assume you have the BRMS server 
  * started as this provides a task client for the human task service.
  */

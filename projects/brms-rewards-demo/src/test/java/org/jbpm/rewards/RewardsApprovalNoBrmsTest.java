@@ -4,19 +4,12 @@ package org.jbpm.rewards;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
+
 import org.drools.KnowledgeBase;
-import org.drools.SystemEventListenerFactory;
 import org.drools.builder.ResourceType;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler;
-import org.jbpm.process.workitem.wsht.AsyncWSHumanTaskHandler;
-import org.jbpm.process.workitem.wsht.SyncWSHumanTaskHandler;
-import org.jbpm.task.service.TaskClient;
-import org.jbpm.task.service.hornetq.CommandBasedHornetQWSHumanTaskHandler;
-import org.jbpm.task.service.hornetq.HornetQTaskClientConnector;
-import org.jbpm.task.service.hornetq.HornetQTaskClientHandler;
 import org.jbpm.test.JbpmJUnitTestCase;
 import org.junit.After;
 import org.junit.Before;
@@ -26,22 +19,13 @@ import org.junit.Test;
 
 
 /**
-* This is a sample file to test a process.
+* This is a sample file to unit test the Extended Rewards Approval process.
 */
 
-public class ProcessNoBrmsTest extends JbpmJUnitTestCase {
-
-  private static final boolean USE_RESOURCES_FROM_GUVNOR = false;
-  private static final String GUVNOR_URL = "http://localhost:8080/jboss-brms";
-  private static final String GUVNOR_USER_NAME = "admin";
-  private static final String GUVNOR_PASSWORD = "admin";
-  private static final String[] GUVNOR_PACKAGES = { "mortgages" };
-  private static final String LOCAL_PROCESS_NAME = "rewardsapproval.bpmn2";
-  private static final String LOCAL_PROCESS_NAME_EXTENDED = "rewardsapprovalextended.bpmn2";
-	private static StatefulKnowledgeSession ksession;
+public class RewardsApprovalNoBrmsTest extends JbpmJUnitTestCase {
 
 
-	public ProcessNoBrmsTest() {
+	public RewardsApprovalNoBrmsTest() {
 
 		super(true);
 
@@ -95,17 +79,21 @@ public class ProcessNoBrmsTest extends JbpmJUnitTestCase {
 		params.put("employee", "erics");
 		params.put("reason", "Amazing demos for JBoss World");
 		System.out.println("=================================================");
-		System.out.println("=      Process Submit Employee Test Case        =");
+		System.out.println("=      Unit Test: Submit Employee Test Case        =");
 		System.out.println("=================================================");
 		
 		// start a new process instance        
 		final ProcessInstance processInstance = ksession.startProcess("org.jbpm.approval.rewards", params);
 
 		// Check whether the process instance has completed successfully.
-		assertProcessInstanceActive(processInstance.getId(), ksession);
-		assertNodeExists(processInstance, "Approve Reward");
-		assertNodeTriggered(processInstance.getId(), "Start", "Approve Reward");
-
+ 	  	assertProcessInstanceActive(processInstance.getId(), ksession);
+ 	  	System.out.println("Process is active.");
+ 	  	assertNodeExists(processInstance, "Approve Reward");
+ 	  	System.out.println("Process had node we are looking for.");
+ 	  	assertNodeTriggered(processInstance.getId(), "Start", "Approve Reward");
+ 	  	System.out.println("Process has triggerd node we expect it to do.");
+ 	  	
+ 	  	System.out.println("Finished test."); 	  	
 	}
 
 }

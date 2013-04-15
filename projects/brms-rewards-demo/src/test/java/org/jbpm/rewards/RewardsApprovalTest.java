@@ -10,7 +10,6 @@ import org.drools.builder.ResourceType;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.process.ProcessInstance;
 import org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler;
-import org.jbpm.process.workitem.wsht.AsyncWSHumanTaskHandler;
 import org.jbpm.task.service.TaskClient;
 import org.jbpm.task.service.hornetq.CommandBasedHornetQWSHumanTaskHandler;
 import org.jbpm.task.service.hornetq.HornetQTaskClientConnector;
@@ -22,21 +21,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * This is a sample file to test a process.
+ * This is a sample file to integration test the Extended Rewards Approval process.
+ * 
+ * Note: you must have BRMS server running as this process test 
+ *       uses a running HornetQ messaging system for its 
+ *       integration test.
  */
-public class ProcessTest extends JbpmJUnitTestCase {
-    private static final boolean USE_RESOURCES_FROM_GUVNOR = false;
-    private static final String GUVNOR_URL = "http://localhost:8080/jboss-brms";
-    private static final String GUVNOR_USER_NAME = "admin";
-    private static final String GUVNOR_PASSWORD = "admin";
-    private static final String[] GUVNOR_PACKAGES = { "mortgages" };
-
-    private static final String LOCAL_PROCESS_NAME = "rewardsapproval.bpmn2";
-    private static final String LOCAL_PROCESS_NAME_EXTENDED = "rewardsapprovalextended.bpmn2";
+public class RewardsApprovalTest extends JbpmJUnitTestCase {
 
 	TaskClient client;
-
-    private static StatefulKnowledgeSession ksession;
 
     @BeforeClass
     public static void setUpOnce() throws Exception {
@@ -93,7 +86,7 @@ public class ProcessTest extends JbpmJUnitTestCase {
  	  	params.put("reason", "Amazing demos for JBoss World");
  	  	
  	  	System.out.println("=================================================");
- 	  	System.out.println("=       Process Submit Employee Test Case       =");
+ 	  	System.out.println("=    Unit Test: Submit Employee Test Case       =");
  	  	System.out.println("=================================================");
  	  	
  	  	// start a new process instance        
@@ -101,8 +94,13 @@ public class ProcessTest extends JbpmJUnitTestCase {
  
  	  	// Check whether the process instance has completed successfully.
  	  	assertProcessInstanceActive(processInstance.getId(), ksession);
+ 	  	System.out.println("Process is active.");
  	  	assertNodeExists(processInstance, "Approve Reward");
+ 	  	System.out.println("Process had node we are looking for.");
  	  	assertNodeTriggered(processInstance.getId(), "Start", "Approve Reward");
+ 	  	System.out.println("Process has triggerd node we expect it to do.");
+ 	  	
+ 	  	System.out.println("Finished test.");
     }
 
 }
