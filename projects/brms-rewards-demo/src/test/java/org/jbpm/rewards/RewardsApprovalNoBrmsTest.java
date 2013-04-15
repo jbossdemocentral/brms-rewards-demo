@@ -21,6 +21,8 @@ import org.jbpm.task.Status;
 import org.jbpm.task.query.TaskSummary;
 import org.jbpm.task.service.ContentData;
 import org.jbpm.task.service.TaskService;
+import org.jbpm.task.service.TaskServiceSession;
+import org.jbpm.task.service.local.LocalTaskService;
 import org.jbpm.task.service.responsehandlers.BlockingTaskSummaryResponseHandler;
 import org.jbpm.test.JbpmJUnitTestCase;
 import org.junit.After;
@@ -37,14 +39,12 @@ import org.junit.Test;
 public class RewardsApprovalNoBrmsTest extends JbpmJUnitTestCase {
 
 	private static StatefulKnowledgeSession ksession;
-	private static TaskService taskService;
+	private static org.jbpm.task.TaskService taskService;
 	private static Map<String, Object> params;
 	private static ProcessInstance processInstance;
 
 	public RewardsApprovalNoBrmsTest() {
-
 		super(true);
-
 	}
 
 	@BeforeClass
@@ -52,20 +52,17 @@ public class RewardsApprovalNoBrmsTest extends JbpmJUnitTestCase {
 		// nothing yet.
 	}
 
-	@Override
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
 	}
 
-	@Override
 	@After
 	public void tearDown() throws Exception {
 		super.tearDown();
 	}
 
 	private void setupTestCase() {		
-		
 		// load up the knowledge base
 		KnowledgeBase kbase = null;
 	
@@ -90,6 +87,8 @@ public class RewardsApprovalNoBrmsTest extends JbpmJUnitTestCase {
 		// initialize process parameters.
 		params.put("employee", "erics");
 		params.put("reason", "Amazing demos for JBoss World!");		
+		
+		taskService = getTaskService(ksession);
 	}
 
 	
@@ -102,10 +101,14 @@ public class RewardsApprovalNoBrmsTest extends JbpmJUnitTestCase {
 		processInstance = ksession.startProcess("org.jbpm.approval.rewards", params);
 
 		// execute task by Mary from HR.		
-		List<TaskSummary> list = taskService.createSession().getTasksAssignedAsPotentialOwner("mary", new ArrayList<String>(), "en-UK");  // NP error here.
+		List<TaskSummary> list = taskService.getTasksAssignedAsPotentialOwner("mary", new ArrayList<String>(), "en-UK");  // NP error here.
 		TaskSummary task = list.get(0);
-		taskService.createSession().setTaskStatus(task.getId(), Status.Reserved);
-		taskService.createSession().setTaskStatus(task.getId(), Status.InProgress);
+		
+		LocalTaskService internalTaskService = (LocalTaskService) taskService;
+		// do this the "normal" way instead of under the cover
+		// ??? taskServiceSession.setTaskStatus(task.getId(), Status.Reserved);
+		// ??? taskServiceSession.setTaskStatus(task.getId(), Status.InProgress);
+		
 		
 		Map<String, Object> taskParams = new HashMap<String, Object>();
 		taskParams.put("Explanation", "Great work");
@@ -117,8 +120,8 @@ public class RewardsApprovalNoBrmsTest extends JbpmJUnitTestCase {
 		content.setContent(getByteArrayFromObject(taskParams));
 		
 		// add results of task.
-		taskService.createSession().setTaskStatus(task.getId(), Status.Completed);
-		
+		// do this the "normal" way instead of under the cover
+		// ??? taskServiceSession.setTaskStatus(task.getId(), Status.Completed);
 
 		// test for completion and in correct end node.
 		assertProcessInstanceCompleted(processInstance.getId(), ksession);
