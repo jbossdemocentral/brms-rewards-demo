@@ -34,7 +34,7 @@ public class ProcessTest extends JbpmJUnitTestCase {
     private static final String LOCAL_PROCESS_NAME = "rewardsapproval.bpmn2";
     private static final String LOCAL_PROCESS_NAME_EXTENDED = "rewardsapprovalextended.bpmn2";
 
-		TaskClient client;
+	TaskClient client;
 
     private static StatefulKnowledgeSession ksession;
 
@@ -93,7 +93,7 @@ public class ProcessTest extends JbpmJUnitTestCase {
  	  	params.put("reason", "Amazing demos for JBoss World");
  	  	
  	  	System.out.println("=================================================");
- 	  	System.out.println("= Starting Process Submit Employee Test Case.   =");
+ 	  	System.out.println("=       Process Submit Employee Test Case       =");
  	  	System.out.println("=================================================");
  	  	
  	  	// start a new process instance        

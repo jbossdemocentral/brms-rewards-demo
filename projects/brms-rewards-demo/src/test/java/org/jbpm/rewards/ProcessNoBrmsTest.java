@@ -78,14 +78,9 @@ public class ProcessNoBrmsTest extends JbpmJUnitTestCase {
     resources.put("rewardsapproval.bpmn2", ResourceType.BPMN2);
 
     try {
-
  			kbase = createKnowledgeBase(resources);
-
  		} catch (Exception e) {
-
- 			// TODO Auto-generated catch block
  			e.printStackTrace();
-
  	  }
 
  	  StatefulKnowledgeSession ksession = createKnowledgeSession(kbase);
@@ -100,7 +95,7 @@ public class ProcessNoBrmsTest extends JbpmJUnitTestCase {
 		params.put("employee", "erics");
 		params.put("reason", "Amazing demos for JBoss World");
 		System.out.println("=================================================");
-		System.out.println("= Starting Process Submit Employee Test Case.   =");
+		System.out.println("=      Process Submit Employee Test Case        =");
 		System.out.println("=================================================");
 		
 		// start a new process instance        

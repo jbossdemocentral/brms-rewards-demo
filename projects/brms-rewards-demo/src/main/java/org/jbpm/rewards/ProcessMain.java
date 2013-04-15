@@ -52,26 +52,4 @@ public class ProcessMain {
 		kbuilder.add(ResourceFactory.newClassPathResource("rewardsapproval.bpmn2"), ResourceType.BPMN2);
 		return kbuilder.newKnowledgeBase();
 	}
-
-	/**
-	 * Attempt at local task server... complicated.
-	 */
-//	private static void setupTaskClient(StatefulKnowledgeSession ksession) {
-//	    TaskServer server = new HornetQTaskServer(taskService, 5446);
-//        Thread thread = new Thread(server);
-//        thread.start();
-//        // Waiting for the HornetQTask Server to come up".
-//        while (!server.isRunning()) {
-//
-//            try {
-//				Thread.sleep(50);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//        }
-//        client = new TaskClient(new HornetQTaskClientConnector("task client",
-//                new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
-//        handler = new AsyncWSHumanTaskHandler(client, ksession);
-//        handler.setConnection("127.0.0.1", 5446);
-//	}
 }
