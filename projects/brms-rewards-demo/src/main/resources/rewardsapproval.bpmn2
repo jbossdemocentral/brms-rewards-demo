@@ -26,7 +26,7 @@
     <property id="explanation" itemSubjectRef="_explanationItem"/>
 
     <!-- nodes -->
-    <startEvent id="_4C4653BD-908A-4B8C-B329-CB61EA65E662" name="" />
+    <startEvent id="_4C4653BD-908A-4B8C-B329-CB61EA65E662" name="Start" />
     <userTask id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" name="Approve Reward" >
       <ioSpecification>
         <dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput" name="Employee" />

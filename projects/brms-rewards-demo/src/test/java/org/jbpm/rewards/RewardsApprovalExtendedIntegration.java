@@ -21,6 +21,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
+ * TODO: work in progress.
+ * 
  * This is a sample file to integration test the Extended Rewards Approval process.
  * 
  * Note: you must have BRMS server running as this process test 

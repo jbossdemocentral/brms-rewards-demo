@@ -26,7 +26,7 @@
     <property id="explanation" itemSubjectRef="_explanationItem"/>
 
     <!-- nodes -->
-    <startEvent id="_4C4653BD-908A-4B8C-B329-CB61EA65E662" name="" />
+    <startEvent id="_4C4653BD-908A-4B8C-B329-CB61EA65E662" name="Start" />
     <userTask id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E" name="Approve Reward" >
       <ioSpecification>
         <dataInput id="_E3F6B3CA-753F-46BB-A263-5341FFB27E8E_EmployeeInput" name="Employee" />
@@ -88,10 +88,10 @@
     </userTask>
     <exclusiveGateway id="_D93D5F2B-8CC0-471F-810C-11A9A97DB590" name="" gatewayDirection="Diverging" />
     <endEvent id="_F0B44D5C-BD35-4DA2-9A65-D5356580E060" name="End Rejected" >
-        <terminateEventDefinition/>
+        <terminateEventDefinition />
     </endEvent>
     <endEvent id="_7F317A87-820C-449C-9205-7FE630D4A68C" name="End Approved" >
-        <terminateEventDefinition/>
+        <terminateEventDefinition />
     </endEvent>
     <task id="_7" name="Log" tns:taskName="Log" >
       <ioSpecification>

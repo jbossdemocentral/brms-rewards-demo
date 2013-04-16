@@ -2,6 +2,7 @@ package org.jbpm.rewards;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import org.drools.KnowledgeBase;
 import org.drools.SystemEventListenerFactory;
@@ -13,10 +14,13 @@ import org.drools.runtime.StatefulKnowledgeSession;
 import org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler;
 import org.jbpm.process.workitem.wsht.AsyncWSHumanTaskHandler;
 import org.jbpm.task.service.TaskClient;
+import org.jbpm.task.service.hornetq.CommandBasedHornetQWSHumanTaskHandler;
 import org.jbpm.task.service.hornetq.HornetQTaskClientConnector;
 import org.jbpm.task.service.hornetq.HornetQTaskClientHandler;
 
 /**
+ * Simple Rewards Process
+ * 
  * Before launching this process start file, we assume you have the BRMS server 
  * started as this provides a task client for the human task service.
  */
@@ -27,12 +31,15 @@ public class ProcessMain {
 		KnowledgeBase kbase = readKnowledgeBase();
 		StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
 
-		// setup task client to use running BRMS server task client.
-		TaskClient client = new TaskClient(new HornetQTaskClientConnector("taskClient",
-                new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
-        AsyncWSHumanTaskHandler handler = new AsyncWSHumanTaskHandler(client, ksession);
-        handler.setConnection("127.0.0.1", 5153);
-		
+		// setup task client to use running BRMS server task client.	        
+        TaskClient client = new TaskClient(new HornetQTaskClientConnector("taskClient" + UUID.randomUUID(), 
+				new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
+        client.connect("127.0.0.1", 5153);
+        
+        // setup task client to use running BRMS server task client.
+ 	  	CommandBasedHornetQWSHumanTaskHandler handler = new CommandBasedHornetQWSHumanTaskHandler(ksession);
+ 	  	handler.setClient(client);
+        
 		// register work items.
 		ksession.getWorkItemManager().registerWorkItemHandler("Log", new SystemOutWorkItemHandler());
 		ksession.getWorkItemManager().registerWorkItemHandler("Email", new SystemOutWorkItemHandler());
@@ -44,7 +51,10 @@ public class ProcessMain {
 		params.put("reason", "Amazing demos for JBoss World");
 		
 		// start a new process instance
+		// start a new process instance
+		System.out.println("Starting Rewards process testing...");
 		ksession.startProcess("org.jbpm.approval.rewards", params);		
+		System.out.println("Rewards process testing started and at first Human Task...");
 	}
 
 	private static KnowledgeBase readKnowledgeBase() throws Exception {
@@ -52,26 +62,4 @@ public class ProcessMain {
 		kbuilder.add(ResourceFactory.newClassPathResource("rewardsapproval.bpmn2"), ResourceType.BPMN2);
 		return kbuilder.newKnowledgeBase();
 	}
-
-	/**
-	 * Attempt at local task server... complicated.
-	 */
-//	private static void setupTaskClient(StatefulKnowledgeSession ksession) {
-//	    TaskServer server = new HornetQTaskServer(taskService, 5446);
-//        Thread thread = new Thread(server);
-//        thread.start();
-//        // Waiting for the HornetQTask Server to come up".
-//        while (!server.isRunning()) {
-//
-//            try {
-//				Thread.sleep(50);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//        }
-//        client = new TaskClient(new HornetQTaskClientConnector("task client",
-//                new HornetQTaskClientHandler(SystemEventListenerFactory.getSystemEventListener())));
-//        handler = new AsyncWSHumanTaskHandler(client, ksession);
-//        handler.setConnection("127.0.0.1", 5446);
-//	}
 }
