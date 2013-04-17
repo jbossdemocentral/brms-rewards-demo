@@ -28,3 +28,6 @@ See the tagged releases for the following versions of the product:
 - v1.4 is updated patched designer war to fix end-of-line removal in code editor.
 
 - v1.5 has Windows installation scripts. 
+
+- v1.6 demo project Mavenized.
+
