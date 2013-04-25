@@ -1,14 +1,13 @@
 #!/bin/sh 
 DEMO="Rewards Demo"
-JBOSS_HOME=./target/jboss-eap-6.0
+JBOSS_HOME=./target/jboss-eap-6.1
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
 LIB_DIR=./support/lib
 SRC_DIR=./installs
 PRJ_DIR=./projects/brms-rewards-demo
-EAP=jboss-eap-6.0.1.zip
+EAP=jboss-eap-6.1.0.Beta.zip
 BRMS=brms-p-5.3.1.GA-deployable-ee6.zip
-EAP_REPO=jboss-eap-6.0.1-maven-repository
 VERSION=5.3.1
 MAVENIZE_VERSION=5.3.1.BRMS
 
