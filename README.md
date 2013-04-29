@@ -51,5 +51,7 @@ See the tagged releases for the following versions of the product:
 
 - v1.5 has Windows installation scripts. 
 
-- v1.6 is BRMS 5.3.1 deployable, running on JBoss EAP 6.1.0.Beta, and fully Mavenized project.
+- v1.6 demo project Mavenized.
+
+- v1.7 is BRMS 5.3.1 deployable, running on JBoss EAP 6.1.0.Beta.
 
