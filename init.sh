@@ -3,7 +3,6 @@ DEMO="Rewards Demo"
 JBOSS_HOME=./target/jboss-eap-6.1
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
-LIB_DIR=./support/lib
 SRC_DIR=./installs
 PRJ_DIR=./projects/brms-rewards-demo
 EAP=jboss-eap-6.1.0.Beta.zip
@@ -90,39 +89,6 @@ echo "  - copying jBPM client JARs..."
 echo
 unzip -q -d $JBOSS_HOME/standalone/lib/ext jboss-jbpm-engine.zip lib/netty.jar
 rm jboss-jbpm-engine.zip
-
-# Unzip the required files from JBoss BRMS Deployable
-#echo Unpacking JBoss Enterprise BRMS $VERSION...
-#echo
-#cd installs
-#unzip -q $BRMS
-
-#echo "  - deploying JBoss Enterprise BRMS Manager WAR..."
-#echo
-#unzip -q -d ../$SERVER_DIR jboss-brms-manager-ee6.zip
-#rm jboss-brms-manager-ee6.zip 
-
-#echo "  - deploying jBPM Console WARs..."
-#echo
-#unzip -q -d ../$SERVER_DIR jboss-jbpm-console-ee6.zip
-#rm jboss-jbpm-console-ee6.zip
-
-#unzip -q jboss-jbpm-engine.zip 
-#echo "  - copying jBPM client JARs..."
-#echo
-#unzip -q -d ../$SERVER_DIR jboss-jbpm-engine.zip lib/netty.jar
-#cp -r lib ../$LIB_DIR
-#cp jbpm-test-5.3.1.BRMS.jar ../$LIB_DIR
-#cp jbpm-human-task-5.3.1.BRMS.jar ../$LIB_DIR
-#cp jbpm-persistence-jpa-5.3.1.BRMS.jar ../$LIB_DIR
-#cp jbpm-workitems-5.3.1.BRMS.jar ../$LIB_DIR
-#rm jboss-jbpm-engine.zip
-#rm -rf *.jar modeshape.zip *.RSA lib
-#rm jboss-brms-engine.zip
-
-#echo Rounding up, setting permissions and copying support files...
-#echo
-#cd ../
 
 echo "  - enabling demo accounts logins in brms-users.properties file..."
 echo
