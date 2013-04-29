@@ -1,5 +1,5 @@
-JBoss BRMS (jBPM) Rewards Demo Quickstart Guide
-===============================================
+JBoss BPM Rewards Demo Quickstart Guide
+=======================================
 
 Demo based on JBoss BRMS products.
 
