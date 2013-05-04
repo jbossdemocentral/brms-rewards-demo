@@ -2,14 +2,13 @@
 setlocal
 
 SET DEMO=Rewards Demo
-SET JBOSS_HOME=.\target\jboss-eap-6.0
+SET JBOSS_HOME=.\target\jboss-eap-6.1
 SET SERVER_DIR=%JBOSS_HOME%\standalone\deployments\
-SET SERVER_CONF=%JBOSS_HOME%/standalone/configuration\
+SET SERVER_CONF=%JBOSS_HOME%\standalone\configuration\
 SET LIB_DIR=.\support\lib\
 SET SRC_DIR=.\installs\
-SET EAP=jboss-eap-6.0.1.zip
+SET EAP=jboss-eap-6.1.0.Beta.zip
 SET BRMS=brms-p-5.3.1.GA-deployable-ee6.zip
-SET EAP_REPO=jboss-eap-6.0.1-maven-repository
 SET VERSION=5.3.1
 
 
