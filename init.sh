@@ -10,6 +10,9 @@ BRMS=brms-p-5.3.1.GA-deployable-ee6.zip
 VERSION=5.3.1
 MAVENIZE_VERSION=5.3.1.BRMS
 
+# wipe screen.
+clear 
+
 ##
 # Installation mavanization functions.
 ##
