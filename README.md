@@ -41,17 +41,20 @@ Released versions
 
 See the tagged releases for the following versions of the product:
 
-- v1.0 is BRMS 5.3.0 standalone, running on JBoss EAP 5.
+- v1.8 is BRMS 5.3.1 deployable, running on JBoss EAP 6.1.
 
-- v1.2 is BRMS 5.3.1 deployable, running on JBoss EAP 6.
-
-- v1.3 is BRMS 5.3.1 deployable, running on JBoss EAP 6, cleaner logging.
-
-- v1.4 is updated patched designer war to fix end-of-line removal in code editor.
-
-- v1.5 has Windows installation scripts. 
+- v1.7 is BRMS 5.3.1 deployable, running on JBoss EAP 6.1.0.Beta.
 
 - v1.6 demo project Mavenized.
 
-- v1.7 is BRMS 5.3.1 deployable, running on JBoss EAP 6.1.0.Beta.
+- v1.5 has Windows installation scripts. 
+
+- v1.4 is updated patched designer war to fix end-of-line removal in code editor.
+
+- v1.3 is BRMS 5.3.1 deployable, running on JBoss EAP 6, cleaner logging.
+
+- v1.2 is BRMS 5.3.1 deployable, running on JBoss EAP 6.
+
+- v1.0 is BRMS 5.3.0 standalone, running on JBoss EAP 5.
+
 
