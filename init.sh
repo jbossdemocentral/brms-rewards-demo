@@ -25,10 +25,11 @@ installBinary() {
 	mvn -q install:install-file -DpomFile=./META-INF/maven/$1/$2/pom.xml -Dfile=$2-$MAVENIZE_VERSION.jar -DgroupId=$1 -DartifactId=$2 -Dversion=$MAVENIZE_VERSION -Dpackaging=jar;
 }
 
-
 echo
 echo "Setting up the JBoss Enterprise EAP 6 ${DEMO} environment..."
 echo
+
+command -v mvn -q >/dev/null 2>&1 || { echo >&2 "Maven is required but not installed yet... aborting."; exit 1; }
 
 # make some checks first before proceeding.	
 if [[ -r $SRC_DIR/$EAP || -L $SRC_DIR/$EAP ]]; then
