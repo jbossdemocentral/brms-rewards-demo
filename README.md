@@ -4,30 +4,6 @@ JBoss BPM Rewards Demo Quickstart Guide
 Demo based on JBoss BRMS products.
 
 
-Supporting Articles
--------------------
-
-[Rewards Demo Updated with EAP 6.1.0] (http://www.schabell.org/2013/05/jboss-brms-demo-eap-6.1.0.html)
-
-[Rewards Demo Updated with EAP 6.1.0.Beta] (http://www.schabell.org/2013/04/red-hat-jboss-brms-rewards-demo-updated.html)
-
-[Rewards Demo Updated with EAP 6.0.0] (http://www.schabell.org/2012/06/jboss-enterprise-brms-bpm-human-tasks.html)
-
-[BPM Human Tasks Made Simple in the Rewards Approval Demo with video] (http://www.schabell.org/2012/06/jboss-enterprise-brms-bpm-human-tasks.html)
-
-[From Zero to Testing, Setting Up the Rewards Demo in IDE with video] (http://www.schabell.org/2012/06/from-zero-to-testing-setting-up-jboss.html)
-
-[How to setup SOA Tools in BRMS Example for JBoss Dev Studio 7] (http://www.schabell.org/2013/04/jboss-developer-studio-7-how-to-setup.html)
-
-[How to setup SOA Tools in BRMS Example for JBoss Dev Studio 6] (http://www.schabell.org/2013/04/jboss-developer-studio-6-how-to-setup.html)
-
-[How to setup SOA Tools in BRMS Example for JBoss Dev Studio 5] (http://www.schabell.org/2012/05/jboss-developer-studio-5-how-to-setup.html)
-
-[How to add Eclipse BPMN2 Modeller project to JBoss Dev Studio 5] (http://www.schabell.org/2013/01/jbds-bpmn2-modeler-howto-install.html)
-
-[Demo now available with Windows installation scripts] (http://www.schabell.org/2013/04/jboss-brms-demos-available-windows.html)
-
-
 Setup and Configuration
 -----------------------
 
@@ -60,6 +36,30 @@ See Quick Start Guide in project as ODT and PDF for details on installation. For
 - start process, process human tasks via forms provided, view JBoss EAP logs for results
 
 Windows users see support/windows/README for installation.
+
+
+Supporting Articles
+-------------------
+
+[Rewards Demo Updated with EAP 6.1.0] (http://www.schabell.org/2013/05/jboss-brms-demo-eap-6.1.0.html)
+
+[Rewards Demo Updated with EAP 6.1.0.Beta] (http://www.schabell.org/2013/04/red-hat-jboss-brms-rewards-demo-updated.html)
+
+[Rewards Demo Updated with EAP 6.0.0] (http://www.schabell.org/2012/06/jboss-enterprise-brms-bpm-human-tasks.html)
+
+[BPM Human Tasks Made Simple in the Rewards Approval Demo with video] (http://www.schabell.org/2012/06/jboss-enterprise-brms-bpm-human-tasks.html)
+
+[From Zero to Testing, Setting Up the Rewards Demo in IDE with video] (http://www.schabell.org/2012/06/from-zero-to-testing-setting-up-jboss.html)
+
+[How to setup SOA Tools in BRMS Example for JBoss Dev Studio 7] (http://www.schabell.org/2013/04/jboss-developer-studio-7-how-to-setup.html)
+
+[How to setup SOA Tools in BRMS Example for JBoss Dev Studio 6] (http://www.schabell.org/2013/04/jboss-developer-studio-6-how-to-setup.html)
+
+[How to setup SOA Tools in BRMS Example for JBoss Dev Studio 5] (http://www.schabell.org/2012/05/jboss-developer-studio-5-how-to-setup.html)
+
+[How to add Eclipse BPMN2 Modeller project to JBoss Dev Studio 5] (http://www.schabell.org/2013/01/jbds-bpmn2-modeler-howto-install.html)
+
+[Demo now available with Windows installation scripts] (http://www.schabell.org/2013/04/jboss-brms-demos-available-windows.html)
 
 
 Released versions
