@@ -1,5 +1,7 @@
 #!/bin/sh 
 DEMO="Rewards Demo"
+AUTHORS="Eric D. Schabell"
+PROJECT="git@github.com:eschabell/brms-rewards-demo.git"
 JBOSS_HOME=./target/jboss-eap-6.1
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
@@ -26,7 +28,24 @@ installBinary() {
 }
 
 echo
-echo "Setting up the JBoss Enterprise EAP 6 ${DEMO} environment..."
+echo "######################################################"
+echo "##                                                  ##"   
+echo "##  Setting up the ${DEMO}                     ##"
+echo "##                                                  ##"   
+echo "##                                                  ##"   
+echo "##             ####   ####    #   #    ###          ##"
+echo "##             #   #  #   #  # # # #  #             ##"
+echo "##             ####   ####   #  #  #   ##           ##"
+echo "##             #   #  #  #   #     #     #          ##"
+echo "##             ####   #   #  #     #  ###           ##"
+echo "##                                                  ##"   
+echo "##                                                  ##"   
+echo "##  brought to you by,                              ##"   
+echo "##             ${AUTHORS}                     ##"
+echo "##                                                  ##"   
+echo "##  ${PROJECT}  ##"
+echo "##                                                  ##"   
+echo "######################################################"
 echo
 
 command -v mvn -q >/dev/null 2>&1 || { echo >&2 "Maven is required but not installed yet... aborting."; exit 1; }
