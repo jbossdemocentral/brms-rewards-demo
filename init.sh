@@ -9,6 +9,7 @@ SRC_DIR=./installs
 PRJ_DIR=./projects/brms-rewards-demo
 EAP=jboss-eap-6.1.0.zip
 BRMS=brms-p-5.3.1.GA-deployable-ee6.zip
+DESIGNER=designer-patched.war
 VERSION=5.3.1
 MAVENIZE_VERSION=5.3.1.BRMS
 
