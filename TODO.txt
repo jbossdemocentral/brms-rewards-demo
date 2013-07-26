@@ -1,0 +1,40 @@
+This branch created for eventual completion as addition to the Rewards Demo.
+Added this TODO for the items listed below as stated in pull 2.
+============================================================================
+
+Thanks patrick, but a few comments:
+
+1. This is only the web side (repo.zip), the demo can't be extended with all these kinds of bits. It needs the JBDS side too.
+
+2. The process extends an existing simple process. I would prefer it to be a separate process.
+
+3. The process needs to be colorized to match the existing format of the rest of the demo.
+
+4. The process image in the project does not match the process (some transition names), so displaying the image in business-central
+is not correct image.
+
+5. It looks like (no documentation so not sure) rewards above 1000 need manager approval, so would make more sense to name the
+process variable accordingly, is less vague that way and more self documenting.
+
+6. The adaption is not applied nor reported in the final e-mail if approved and submitting 2000 as reward. Everything between
+1-10000 should set -10 in your table?
+
+7. Too much debug and some in German:
+
+2:46:55,966 INFO  [stdout] (Thread-124) --> Entering Node <Prepare Rule Execution>
+12:46:55,968 INFO  [stdout] (Thread-124) --> Leaving Node <Prepare Rule Execution>
+12:46:55,970 INFO  [stdout] (Thread-124) ----------------- rule fired-------------------------
+12:46:55,973 INFO  [stdout] (Thread-124)  ----- hinter Gateway ---- 
+12:46:55,973 INFO  [stdout] (Thread-124) RuleInput <RuleInput( amount=2000, result=approve, adaptation=0 )>
+12:46:55,973 INFO  [stdout] (Thread-124) RuleInput.result <approve>
+12:47:14,029 INFO  [stdout] (Thread-124) --> Entering Node <Adapt Reward>
+12:47:14,030 INFO  [stdout] (Thread-124) pv_ruleInput <RuleInput( amount=2000, result=approve, adaptation=0 )>
+12:47:14,030 INFO  [stdout] (Thread-124) Adaptation <0>
+12:47:14,031 INFO  [stdout] (Thread-124) --> Leaving Node <Adapt Reward>
+
+8. No documentation update as to how to use this in the Quickstart Guide.
+
+As you can see, there would be much work yet to be done before I release this into the process wild. 
+
+That being said, I will leave it on a branch for now 'patrick-webrule-p2', if I can find time down the road to work on this I will
+try to complete the demo and add it as a third process. I will add these notes to the Readme in the branch as a TODO.
