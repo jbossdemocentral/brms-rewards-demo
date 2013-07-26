@@ -36,5 +36,5 @@ process variable accordingly, is less vague that way and more self documenting.
 
 As you can see, there would be much work yet to be done before I release this into the process wild. 
 
-That being said, I will leave it on a branch for now 'patrick-webrule-p2', if I can find time down the road to work on this I will
+That being said, I will leave it on a branch for now 'patrick-webrules-p2', if I can find time down the road to work on this I will
 try to complete the demo and add it as a third process. I will add these notes to the Readme in the branch as a TODO.
