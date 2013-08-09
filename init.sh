@@ -2,11 +2,11 @@
 DEMO="Rewards Demo"
 AUTHORS="Eric D. Schabell"
 PROJECT="git@github.com:eschabell/brms-rewards-demo.git"
-JBOSS_HOME=./target/jboss-eap-6.1
+SRC_DIR=./installs
+JBOSS_HOME=$SRC_DIR/jboss-eap-6.1
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
-SRC_DIR=./installs
-PRJ_DIR=./projects/brms-rewards-demo
+PRJ_DIR=./
 EAP=jboss-eap-6.1.0.zip
 BRMS=brms-p-5.3.1.GA-deployable-ee6.zip
 DESIGNER=designer-patched.war
@@ -62,16 +62,6 @@ else
 		exit
 fi
 
-# Create the target directory if it does not already exist.
-if [ ! -x target ]; then
-		echo "  - creating the target directory..."
-		echo
-		mkdir target
-else
-		echo "  - detected target directory, moving on..."
-		echo
-fi
-
 # Move the old JBoss instance, if it exists, to the OLD position.
 if [ -x $JBOSS_HOME ]; then
 		echo "  - existing JBoss Enterprise EAP 6 detected..."
@@ -84,18 +74,21 @@ if [ -x $JBOSS_HOME ]; then
 		# Unzip the JBoss EAP instance.
 		echo Unpacking JBoss Enterprise EAP 6...
 		echo
-		unzip -q -d target $SRC_DIR/$EAP
+		chmod +x $SRC_DIR/$EAP
+		unzip -q -d $SRC_DIR $SRC_DIR/$EAP
 else
 		# Unzip the JBoss EAP instance.
 		echo Unpacking new JBoss Enterprise EAP 6...
 		echo
-		unzip -q -d target $SRC_DIR/$EAP
+		chmod +x $SRC_DIR/$EAP
+		unzip -q -d $SRC_DIR $SRC_DIR/$EAP
 fi
+
 
 # Unzip the required files from JBoss BRMS Deployable
 echo Unpacking JBoss Enterprise BRMS $VERSION...
 echo
-
+chmod +x $SRC_DIR/$BRMS
 unzip -q $SRC_DIR/$BRMS jboss-brms-manager-ee6.zip 
 echo "  - deploying JBoss Enterprise BRMS Manager WAR..."
 echo
@@ -227,7 +220,7 @@ echo Now going to build the model jars by generating classes in your project.
 echo
 cd $PRJ_DIR
 mvn clean install -DskipTests
-cd ../..
+#
 
 echo "  - copying model jars and configuration to Business Central server..."
 echo 
