@@ -11,9 +11,12 @@ Source: <https://github.com/rafabene/brms-rewards-demo>
 What is it?
 -----------
 
-This quickstart shows how to use BRMS to evaluate a Rewards Approval.
+This quickstart shows how to use BRMS to evaluate and determine whether approve or reject an employee reward request. This demo includes Human Task Integration, meaning the process waits for human task intervention to approve or reject the award before it continues the workflow.
 
-It will use two BPMN2 processes (a single version and an extended version) that has a Human Task Integration. The Human Task allows the Rewards to be approved or rejected.
+This demo includes two `BPMN2` processes: 
+
+1. Simple process - In this version, the award request is logged and then waits for approval or rejection. If the award is approved, an email is sent to the employee, and the process ends. If the award is rejected, the process ends without notification.
+2. Extended process - In this version, the award request is logged and then waits for approval or rejection. If the award is approved, the information is filed in the employee personnel file, a congratulations email is sent to the employee, and the process ends. If the award is rejected, the rejection is noted in the employee file, a rejection is emailed to the employee, and the process ends.
 
 
 Configure and Run the Quickstart
@@ -31,12 +34,12 @@ The following is a brief summary of the steps you will take to configure and run
     * Install the SOA tools.
     * Add the BRMS platform server runtime.
     * Import the project.
-4. Run 'mvn clean install' on the project to ensure it builds successfully.
+4. Run `mvn clean install` on the project to ensure it builds successfully.
 5. Start the JBoss EAP server.
-6. Login to BRM (http://localhost:8080/jboss-brms).
+6. Login to JBoss BRMS at <http://localhost:8080/jboss-brms>.
 7. Import the project repository `repository-export.zip` file from the `support/` directory.
 8. Build and deploy project in BRM.
-9. Login to Business Central (http://localhost:8080/business-central).
+9. Login to BRMS Central at <http://localhost:8080/business-central>.
 10. Start the process and view the JBoss EAP logs for results.
 
 _Note: Windows users should see `support/windows/README` for installation procedures._
