@@ -1,42 +1,48 @@
-JBoss BPM Rewards Demo Quickstart Guide
-=======================================
+brms-rewards-demo: BRMS Rewards Demo
+====================================
+Author: Eric D. Schabell
+Level: Intermediate
+Technologies: BRMS, JBPM
+Summary: Demonstrates the use of Human Task integration with BPM
+Prerequisites: 
+Target Product: BRMS
+Source: <https://github.com/rafabene/brms-rewards-demo>
 
-Demo based on JBoss BRMS products.
+What is it?
+-----------
+
+This quickstart shows how to use BRMS to evaluate and determine whether approve or reject an employee reward request. This demo includes Human Task Integration, meaning the process waits for human task intervention to approve or reject the award before it continues the workflow.
+
+This demo includes two `BPMN2` processes: 
+
+1. Simple process - In this version, the award request is logged and then waits for approval or rejection. If the award is approved, an email is sent to the employee, and the process ends. If the award is rejected, the process ends without notification.
+2. Extended process - In this version, the award request is logged and then waits for approval or rejection. If the award is approved, the information is filed in the employee personnel file, a congratulations email is sent to the employee, and the process ends. If the award is rejected, the rejection is noted in the employee file, a rejection is emailed to the employee, and the process ends.
 
 
-Setup and Configuration
------------------------
+Configure and Run the Quickstart
+-------------------
 
-See Quick Start Guide in project as ODT and PDF for details on installation. For those that can't wait:
+This quickstart has more complex setup and configuration requirements than many of the other quickstarts. Please see the `Quick Start Guide` located in the `docs/` folder for complete instructions on how to configrre and run this quickstart. The file is provided in both PDF and ODT formats.
 
-- see README in 'installs' directory
+The following is a brief summary of the steps you will take to configure and run the quickstart. _Note: These steps are not meant to replace the complete instructions contained in the `docs/Quick Start Guide.odt` or `docs/Quick Start Guide.pdf` files!_
 
-- add products 
+1. Download the following from the JBoss Customer Portal at <https://access.redhat.com/jbossnetwork/restricted/listSoftware.html> into the quickstart `installs/` directory:
+    * BRMS (brms-p-5.3.1.GA-deployable-ee6.zip)	
+    * EAP (jboss-eap-6.1.0.zip)
+2. Run `init.sh` to install EAP 6 and deploy BRMS. Verify the output and make sure the command completes successfully.
+3. Configure JBoss Developer Studio (JBDS).
+    * Install the SOA tools.
+    * Add the BRMS platform server runtime.
+    * Import the project.
+4. Run `mvn clean install` on the project to ensure it builds successfully.
+5. Start the JBoss EAP server.
+6. Login to JBoss BRMS at <http://localhost:8080/jboss-brms>.
+7. Import the project repository `repository-export.zip` file from the `support/` directory.
+8. Build and deploy project in BRM.
+9. Login to BRMS Central at <http://localhost:8080/business-central>.
+10. Start the process and view the JBoss EAP logs for results.
 
-- run 'init.sh' & read output
-
-- read Quick Start Guide
-
-- setup JBDS for project import, add JBoss EAP server
-
-- import projects
-
-- run 'mvn clean install' on project to build
-
-- start JBoss EAP server
-
-- login to BRM (http://localhost:8080/jboss-brms)
-
-- import repository-export from support dir
-
-- build and deploy project in BRM
-
-- login to Business Central (http://localhost:8080/business-central)
-
-- start process, process human tasks via forms provided, view JBoss EAP logs for results
-
-Windows users see support/windows/README for installation.
-
+_Note: Windows users should see `support/windows/README` for installation procedures._
 
 Supporting Articles
 -------------------
@@ -84,4 +90,5 @@ See the tagged releases for the following versions of the product:
 - v1.2 is BRMS 5.3.1 deployable, running on JBoss EAP 6.
 
 - v1.0 is BRMS 5.3.0 standalone, running on JBoss EAP 5.
+
 
