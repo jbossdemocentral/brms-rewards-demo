@@ -1,7 +1,7 @@
 brms-rewards-demo: BRMS Rewards Demo
 ====================================
 Author: Eric D. Schabell
-Level: Beginner
+Level: Intermediate
 Technologies: BRMS, JBPM
 Summary: Demonstrates the use of Human Task integration with BPM
 Prerequisites: 
