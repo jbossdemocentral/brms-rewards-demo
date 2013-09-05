@@ -41,6 +41,8 @@ Windows users see support/windows/README for installation.
 Supporting Articles
 -------------------
 
+[Rewards Demo Updated with EAP 6.1.1] ()
+
 [Rewards Demo Updated with EAP 6.1.0] (http://www.schabell.org/2013/05/jboss-brms-demo-eap-6.1.0.html)
 
 [Rewards Demo Updated with EAP 6.1.0.Beta] (http://www.schabell.org/2013/04/red-hat-jboss-brms-rewards-demo-updated.html)
@@ -66,6 +68,8 @@ Released versions
 -----------------
 
 See the tagged releases for the following versions of the product:
+
+- v2.0 is BRMS 5.3.1 deployable, JBDS 7, running on JBoss EAP 6.1.1.
 
 - v1.9 is BRMS 5.3.1 deployable, JBDS 7.0.0.Beta1, running on JBoss EAP 6.1.
 
