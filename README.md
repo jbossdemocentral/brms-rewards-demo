@@ -41,7 +41,7 @@ Windows users see support/windows/README for installation.
 Supporting Articles
 -------------------
 
-[Rewards Demo Updated with EAP 6.1.1] ()
+[Rewards Demo Updated with EAP 6.1.1] (http://www.schabell.org/2013/09/jboss-brms-rewards-demo-updated-eap-611.html)
 
 [Rewards Demo Updated with EAP 6.1.0] (http://www.schabell.org/2013/05/jboss-brms-demo-eap-6.1.0.html)
 
