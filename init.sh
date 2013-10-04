@@ -80,17 +80,12 @@ if [ -x $JBOSS_HOME ]; then
 		echo
 		rm -rf $JBOSS_HOME.OLD
 		mv $JBOSS_HOME $JBOSS_HOME.OLD
-
-		# Unzip the JBoss EAP instance.
-		echo Unpacking JBoss Enterprise EAP 6...
-		echo
-		unzip -q -d target $SRC_DIR/$EAP
-else
-		# Unzip the JBoss EAP instance.
-		echo Unpacking new JBoss Enterprise EAP 6...
-		echo
-		unzip -q -d target $SRC_DIR/$EAP
 fi
+
+# Unzip the JBoss EAP instance.
+echo Unpacking new JBoss Enterprise EAP 6...
+echo
+unzip -q -d target $SRC_DIR/$EAP
 
 # Unzip the required files from JBoss BRMS Deployable
 echo Unpacking JBoss Enterprise BRMS $VERSION...
