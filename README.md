@@ -1,7 +1,7 @@
 JBoss BPM Rewards Demo Quickstart Guide
 =======================================
 
-Demo based on JBoss BRMS products.
+Demo based on JBoss BRMS 5.x products.
 
 
 Setup and Configuration
@@ -69,6 +69,8 @@ Released versions
 -----------------
 
 See the tagged releases for the following versions of the product:
+
+- v2.1 moved to JBoss Demo Central.
 
 - v2.1 restructured by adding in a docs directory.
 

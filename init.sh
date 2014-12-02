@@ -1,7 +1,7 @@
 #!/bin/sh 
 DEMO="Rewards Demo"
 AUTHORS="Eric D. Schabell"
-PROJECT="git@github.com:eschabell/brms-rewards-demo.git"
+PROJECT="git@github.com:jbossdemocentral/brms-rewards-demo.git"
 JBOSS_HOME=./target/jboss-eap-6.1
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
